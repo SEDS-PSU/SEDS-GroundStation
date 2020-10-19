@@ -1,0 +1,1 @@
+add_a:2000;add_b:1234;sub_c:42;sub_a:1;mult_b:2;mult_c:4;div_b:4;div_c:3

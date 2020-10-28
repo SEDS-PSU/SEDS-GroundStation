@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LL-Teststand-UI"
+    }
+  },
+  "defaultProject": "LL-Teststand-UI",
+  "cli": {
+    "analytics": false
+  }
 }

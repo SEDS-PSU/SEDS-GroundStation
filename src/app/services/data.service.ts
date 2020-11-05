@@ -19,5 +19,47 @@ export class DataService {
 
   parseData(data: string): void {
     // code goes here, use console.log() to check values of a, b, and c
+
+    //Is this the what you're looking for so far? I still need to add a few things like importing the text file, etc...
+
+    "use strict";                      //IDE added this 
+    exports.__esModule = true;          //IDE also added this
+    function calculate(letter, operator, number) {
+      if (operator == 'add') {
+        return letter += number;
+      }
+      if (operator == 'sub') {
+        return letter -= number;
+      }
+      if (operator == 'mult') {
+        return letter *= number;
+      }
+      if (operator == 'div') {
+        return letter /= number;
+      }
+    }
+
+    var splitting = data.split(';');
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    for (var i = 0; i < splitting.length; i++) {
+      var temp = splitting[i].split('_');
+      var opr = temp[0];
+      var temp2 = temp[1].split(':');
+      var letter = temp2[0];
+      var num = +temp2[1];
+      if (letter == 'a') {
+        a = calculate(a, opr, num);
+      }
+      if (letter == 'b') {
+        b = calculate(b, opr, num);
+      }
+      if (letter == 'c') {
+        c = calculate(c, opr, num);
+      }
+    }
+    console.log("a: " + a + " b: " + b + " c: " + c);
+
   }
 }

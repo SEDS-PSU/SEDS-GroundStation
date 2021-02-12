@@ -7,7 +7,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./diagram.component.scss'],
 })
 export class DiagramComponent implements OnInit {
-  constructor(private dataService: DataService) {}
+  constructor() {}
 
   map = new Map([
     ['FO-P', 'closed'],

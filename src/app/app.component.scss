@@ -1,0 +1,18 @@
+#grid {
+  display: grid;
+  grid-template-rows: 4em calc(100vh - 4em);
+  grid-template-columns: 20em calc(100vw - 20em);
+  grid-template-areas: 'header header' 'data diagram';
+}
+
+app-header {
+  grid-area: header;
+}
+
+app-data-display {
+  grid-area: data;
+}
+
+app-diagram {
+  grid-area: diagram;
+}

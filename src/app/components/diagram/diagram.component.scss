@@ -1,4 +1,4 @@
-div{
+div {
   display: inline-block;
   padding: 0px;
   margin: 0px;
@@ -6,7 +6,7 @@ div{
   zoom: 0.4;
   float: left;
 }
-img{
+img {
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -14,7 +14,7 @@ img{
   position: relative;
   max-width: 100%;
 }
-.FO-P{
+.FO-P {
   position: absolute;
   top: 53.9%;
   left: 41.9%;
@@ -29,7 +29,7 @@ img{
   width: 3.2%;
   outline: none;
 }
-.FC-P{
+.FC-P {
   position: absolute;
   top: 38%;
   left: 41.79%;
@@ -44,13 +44,13 @@ img{
   width: 4%;
   outline: none;
 }
-.FO-FP{
+.FO-FP {
   position: absolute;
   top: 19.6%;
   left: 18.88%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -59,13 +59,13 @@ img{
   width: 3.2%;
   outline: none;
 }
-.FC-FP{
+.FC-FP {
   position: absolute;
   top: 27.2%;
   left: 13.35%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -74,13 +74,13 @@ img{
   width: 3.2%;
   outline: none;
 }
-.FO-OP{
+.FO-OP {
   position: absolute;
   top: 17.1%;
   left: 68.85%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -89,13 +89,13 @@ img{
   width: 3.4%;
   outline: none;
 }
-.FC-OP{
+.FC-OP {
   position: absolute;
   top: 24.5%;
   left: 74.51%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -104,13 +104,13 @@ img{
   width: 3.2%;
   outline: none;
 }
-.FC1-O{
+.FC1-O {
   position: absolute;
   top: 57.55%;
   left: 81.53%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -119,13 +119,13 @@ img{
   width: 3.35%;
   outline: none;
 }
-.FC2-O{
+.FC2-O {
   position: absolute;
   top: 58.6%;
   left: 68.5%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -134,13 +134,13 @@ img{
   width: 3.55%;
   outline: none;
 }
-.FO-O{
+.FO-O {
   position: absolute;
   top: 68.5%;
   left: 71%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -149,13 +149,13 @@ img{
   width: 3.55%;
   outline: none;
 }
-.PV-O{
+.PV-O {
   position: absolute;
   top: 65%;
   left: 46.65%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -164,13 +164,13 @@ img{
   width: 3.55%;
   outline: none;
 }
-.PV-F{
+.PV-F {
   position: absolute;
   top: 65%;
   left: 41.9%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #FF0000;
+  background-color: #ff0000;
   color: white;
   font-size: 9.7px;
   padding: 7px 1px;
@@ -179,14 +179,14 @@ img{
   width: 3.55%;
   outline: none;
 }
-.PV-O_status{
+.PV-O_status {
   position: absolute;
   top: 65.8%;
   left: 46.65%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-.PV-F_status{
+.PV-F_status {
   position: absolute;
   top: 65.8%;
   left: 41.9%;
@@ -195,8 +195,8 @@ img{
 }
 
 html {
-    height:100%;
+  height: 100%;
 }
 div.div2 {
-    top:100%;
+  top: 100%;
 }

@@ -12,13 +12,10 @@ import { DataDisplayComponent } from './data-display/data-display.component';
     AppComponent,
     HeaderComponent,
     DiagramComponent,
-    DataDisplayComponent
+    DataDisplayComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

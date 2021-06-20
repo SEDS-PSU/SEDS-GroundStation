@@ -7,7 +7,7 @@ export class DataService {
   data: string[]; // array of random number strings, one for each valve
 
   constructor() {
-    this.data = Array<string>(4).fill(''); // set length based on number of valves
+    this.data = Array<string>(8).fill(''); // set length based on number of valves
     setInterval(() => this.generateRandomData(), 1000);
   }
 

@@ -19,169 +19,207 @@ img {
   height: 100%;
   width: auto;
 }
-.FO-P {
+.killSwitchLabel{
   position: absolute;
-  top: 53.9%;
-  left: 41.9%;
+  top: 92.5%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: black;
+  font-size: 30px;
+  width: 150px;
+  outline: none;
+}
+.WARNING{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: black;
+  font-size: 100px;
+  width: 100%;
+  outline: none;
+  visibility: hidden;
+}
+.KILL {
+  position: absolute;
+  top: 95%;
+  left: 13%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
   background-color: red;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 50px;
+  padding: 20px 20px;
+  cursor: pointer;
+  border-radius: 10%;
+  width: 100px;
+  outline: none;
+}
+.FO-P {
+  position: absolute;
+  top: 53.9%;
+  left: 41%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: red;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.2%;
+  width: 5%;
   outline: none;
 }
 .FC-P {
   position: absolute;
   top: 38%;
-  left: 41.79%;
+  left: 41%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
   background-color: red;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 4%;
+  width: 5%;
   outline: none;
 }
 .FO-FP {
   position: absolute;
   top: 19.6%;
-  left: 18.88%;
+  left: 18%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.2%;
+  width: 5%;
   outline: none;
 }
 .FC-FP {
   position: absolute;
-  top: 27.2%;
+  top: 27.8%;
   left: 13.35%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.2%;
+  width: 5%;
   outline: none;
 }
 .FO-OP {
   position: absolute;
   top: 17.1%;
-  left: 68.85%;
+  left: 69.4%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.4%;
+  width: 5%;
   outline: none;
 }
 .FC-OP {
   position: absolute;
   top: 24.5%;
-  left: 74.51%;
+  left: 74.2%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.2%;
+  width: 5%;
   outline: none;
 }
 .FC1-O {
   position: absolute;
-  top: 57.55%;
+  top: 58%;
   left: 81.53%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.35%;
+  width: 5%;
   outline: none;
 }
 .FC2-O {
   position: absolute;
-  top: 58.6%;
-  left: 68.5%;
+  top: 58.9%;
+  left: 68.9%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.55%;
+  width: 5%;
   outline: none;
 }
 .FO-O {
   position: absolute;
   top: 68.5%;
-  left: 71%;
+  left: 71.5%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.55%;
+  width: 5%;
   outline: none;
 }
 .PV-O {
   position: absolute;
   top: 65%;
-  left: 46.65%;
+  left: 46.45%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.55%;
+  width: 4%;
   outline: none;
 }
 .PV-F {
   position: absolute;
   top: 65%;
-  left: 41.9%;
+  left: 42.1%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
   color: white;
-  font-size: 9.7px;
-  padding: 7px 1px;
+  font-size: 10px;
+  padding: 4px 1px;
   cursor: pointer;
   border-radius: 10px;
-  width: 3.55%;
+  width: 4%;
   outline: none;
 }
 .PV-O_status {

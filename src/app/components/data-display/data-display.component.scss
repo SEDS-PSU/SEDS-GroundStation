@@ -7,3 +7,39 @@ div {
   width: 100%;
   color: white;
 }
+.recordDataStart{
+  position: absolute;
+  top: 77%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 100%;
+  width: 40%;
+  outline: none;
+  background: 	#000080;
+}
+.recordDataStop{
+  position: absolute;
+  top: 77%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background: 	#000080;
+  font-size: 100%;
+  width: 40%;
+  outline: none;
+}
+.downloadData{
+  position: absolute;
+  top: 85%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background: #000080;
+  font-size: 100%;
+  width: 36%;
+  outline: none;
+}

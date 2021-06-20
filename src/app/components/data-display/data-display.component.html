@@ -6,25 +6,48 @@
       <th>(Units)</th>
     </tr>
     <tr>
-      <td>PT4-O</td>
-      <td>DATA</td>
+      <td>PT-OP</td>
+      <td id="PT-OP">DATA</td>
+    </tr>
+    <tr>
+      <td>PT1-O</td>
+      <td id="PT1-O">DATA</td>
+    </tr>
+    <tr>
+      <td>PT-FP</td>
+      <td id="PT-FP">DATA</td>
+    </tr>
+    <tr>
+      <td>PT1-F</td>
+      <td id="PT1-F">DATA</td>
     </tr>
     <tr>
       <td>PT2-F</td>
-      <td>DATA</td>
+      <td id="PT2-F">DATA</td>
     </tr>
-
     <tr>
       <th align="left">Thermocouple</th>
       <th>(Units)</th>
     </tr>
     <tr>
-      <td>TC2-F</td>
-      <td>DATA</td>
+      <td>TC1-F</td>
+      <td id="TC1-F">DATA</td>
     </tr>
     <tr>
-      <td>TC5-O</td>
-      <td>DATA</td>
+      <td>TC2-F</td>
+      <td id="TC2-F">DATA</td>
+    </tr>
+    <tr>
+      <td>FM-F</td>
+      <td id="FM-F">DATA</td>
     </tr>
   </table>
+
+  <button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart">
+    Start Recording
+  </button>
+  <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop">
+    Stop Recording
+  </button>
+  <a [href]="fileUrl" download="Data.txt" class="downloadData">Download File</a>
 </div>

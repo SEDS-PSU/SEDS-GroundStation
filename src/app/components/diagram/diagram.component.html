@@ -4,6 +4,9 @@
     <h1 class="killSwitchLabel">
       KILL SWITCH
     </h1>
+    <!--add buttons for valve sequences, these can pass over a name a sequence
+    name (i.e. 'Sequence 1') through the method 'changeValveSequence()'. These
+    names must correspond to the key names of sequenceList defined in diagram.component.ts-->
     <button (click)="startTimer()" class="KILL" id="KILL">
       5
     </button>
@@ -40,6 +43,11 @@
     <button (click)="toggleState('PV-F')" class="PV-F" id="PV-F">
       PV-F
     </button>
+    <!--valve sequence button test-->
+    <button (click)="changeValveSequence('Sequence 1')" class="Sequence-1" id="Sequence-1">
+      Sequence-1
+    </button>
+
     <p class="PV-O_status"></p>
     <p class="PV-F_status"></p>
     <h2 class="WARNING" id="WARNING">

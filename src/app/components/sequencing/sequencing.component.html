@@ -1,0 +1,29 @@
+<div id="sequencing-container">
+    <h1 align="center">Sequencing</h1>
+
+    <!--testing dropdown menu-->
+    
+
+    <button (click)="confirmAdvance()" class="tester" id="tester">
+        Apply Step
+    </button>
+    <button (click)="selectSequence()" class="selector" id="selector">
+        Select Test Sequence
+    </button>
+    <p class="currentstep" id="currentstep">
+        Current Step: N/A
+    </p>
+    <p class="stepinfo" id="stepinfo">
+        Valves to open: N/A
+    </p>
+    <p>
+        All other valves will close.
+    </p>
+    <button (click)="advanceStep()" class="advance" id="advance">
+        Forward Step
+    </button>
+    <button (click)="reverseStep()" class="reverse" id="reverse">
+        Reverse Step
+    </button>
+
+</div>

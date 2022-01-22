@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DiagramComponent } from './components/diagram/diagram.component';
 import { DataDisplayComponent } from './components/data-display/data-display.component';
+import { SequencingComponent } from './components/sequencing/sequencing.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { DataDisplayComponent } from './components/data-display/data-display.com
     HeaderComponent,
     DiagramComponent,
     DataDisplayComponent,
+    SequencingComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],

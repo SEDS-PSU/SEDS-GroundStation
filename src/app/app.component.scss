@@ -1,8 +1,8 @@
 #grid {
   display: grid;
   grid-template-rows: 4em calc(100vh - 4em);
-  grid-template-columns: 20em calc(100vw - 20em);
-  grid-template-areas: 'header header' 'data diagram';
+  grid-template-columns: 20em calc(100vw - 40em);
+  grid-template-areas: 'header header header' 'data diagram sequencing';
 }
 
 app-header {
@@ -15,4 +15,8 @@ app-data-display {
 
 app-diagram {
   grid-area: diagram;
+}
+
+app-sequencing {
+  grid-area: sequencing;
 }

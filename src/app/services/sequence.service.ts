@@ -11,7 +11,7 @@ export class SequenceService {
 
   /*
     This service holds all data for sequences, valve states, wait times
-    there will be either 10 or 11 actuated valves
+    there are currently 10 valves
   */
 
   //Steps and wait times:

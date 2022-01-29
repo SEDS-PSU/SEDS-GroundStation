@@ -73,9 +73,8 @@ export class SequencingComponent implements OnInit {
     if(confirm("Are you sure to apply the currently selected step?") && this.selected.selectedSequence != 'none')
     {
       this.messageDiagram(this.selected.getCurrentStepData());
+      this.advanceStep();
     }
-
-    this.advanceStep();
   }
 
   //updates UI to show what valves will open when the sequence step is pushed

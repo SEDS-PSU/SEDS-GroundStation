@@ -18,14 +18,14 @@ export class DataDisplayComponent implements OnInit {
     this.interval = setInterval(() => {
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
-      document.getElementById('PT-OP').innerHTML = String(this.dataService.data[0]);
-      document.getElementById('PT1-O').innerHTML = String(this.dataService.data[1]);
-      document.getElementById('PT-FP').innerHTML = String(this.dataService.data[2]);
-      document.getElementById('PT1-F').innerHTML = String(this.dataService.data[3]);
-      document.getElementById('PT2-F').innerHTML = String(this.dataService.data[4]);
+      document.getElementById('PT1-F').innerHTML = String(this.dataService.data[0]);
+      document.getElementById('PT2-F').innerHTML = String(this.dataService.data[1]);
+      document.getElementById('PT1-O').innerHTML = String(this.dataService.data[2]);
+      document.getElementById('PT2-O').innerHTML = String(this.dataService.data[3]);
+      document.getElementById('PT3-O').innerHTML = String(this.dataService.data[4]);
       document.getElementById('TC1-F').innerHTML = String(this.dataService.data[5]);
       document.getElementById('TC2-F').innerHTML = String(this.dataService.data[6]);
-      document.getElementById('FM-F').innerHTML = String(this.dataService.data[7]);
+      document.getElementById('TC1-O').innerHTML = String(this.dataService.data[7]);
     },1000)
   }
 

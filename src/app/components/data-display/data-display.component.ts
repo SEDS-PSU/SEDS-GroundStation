@@ -18,14 +18,25 @@ export class DataDisplayComponent implements OnInit {
     this.interval = setInterval(() => {
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
-      document.getElementById('PT-OP').innerHTML = String(this.dataService.data[0]);
-      document.getElementById('PT1-O').innerHTML = String(this.dataService.data[1]);
-      document.getElementById('PT-FP').innerHTML = String(this.dataService.data[2]);
-      document.getElementById('PT1-F').innerHTML = String(this.dataService.data[3]);
-      document.getElementById('PT2-F').innerHTML = String(this.dataService.data[4]);
-      document.getElementById('TC1-F').innerHTML = String(this.dataService.data[5]);
-      document.getElementById('TC2-F').innerHTML = String(this.dataService.data[6]);
+      document.getElementById('TC1-E').innerHTML = String(this.dataService.data[0]);
+      document.getElementById('TC2-E').innerHTML = String(this.dataService.data[1]);
+      document.getElementById('TC1-F').innerHTML = String(this.dataService.data[2]);
+      document.getElementById('TC2-F').innerHTML = String(this.dataService.data[3]);
+      document.getElementById('TC1-O').innerHTML = String(this.dataService.data[4]);
+      document.getElementById('TC5-O').innerHTML = String(this.dataService.data[5]);
       document.getElementById('FM-F').innerHTML = String(this.dataService.data[7]);
+      document.getElementById('FM-O').innerHTML = String(this.dataService.data[8]);
+      document.getElementById('Load1').innerHTML = String(this.dataService.data[9]);
+      document.getElementById('Load2').innerHTML = String(this.dataService.data[10]);
+      document.getElementById('PT1-F').innerHTML = String(this.dataService.data[11]);
+      document.getElementById('PT2-F').innerHTML = String(this.dataService.data[12]);
+      document.getElementById('PT1-E').innerHTML = String(this.dataService.data[13]);
+      document.getElementById('PT2-E').innerHTML = String(this.dataService.data[14]);
+      document.getElementById('PT1-O').innerHTML = String(this.dataService.data[15]);
+      document.getElementById('PT2-O').innerHTML = String(this.dataService.data[16]);
+      document.getElementById('PT4-O').innerHTML = String(this.dataService.data[17]);
+      document.getElementById('PT1-P').innerHTML = String(this.dataService.data[18]);
+      document.getElementById('PT2-P').innerHTML = String(this.dataService.data[19]);
     },1000)
   }
 

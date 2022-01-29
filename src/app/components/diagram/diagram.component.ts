@@ -19,7 +19,7 @@ export class DiagramComponent implements OnInit {
     ['FC-FP', false],
     ['FC1-O', false],
     ['FC2-O', false],
-    ['FO-O', false],
+    //['FO-O', false], //get rid of this valve
     ['FC-P', false],
     ['PV-F', false],
     ['PV-O', false],
@@ -34,7 +34,7 @@ export class DiagramComponent implements OnInit {
     ['FC-FP', false],
     ['FC1-O', false],
     ['FC2-O', false],
-    ['FO-O', false],
+    //['FO-O', false],
     ['FC-P', false],
     ['PV-F', false],
     ['PV-O', false],

@@ -60,7 +60,7 @@ img {
 .FO-P {
   position: absolute;
   top: 53.9%;
-  left: 41%;
+  left: 35.5%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
@@ -74,8 +74,8 @@ img {
 }
 .FC-P {
   position: absolute;
-  top: 38%;
-  left: 41%;
+  top: 36%;
+  left: 38%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
@@ -90,7 +90,7 @@ img {
 .FO-FP {
   position: absolute;
   top: 19.6%;
-  left: 18%;
+  left: 11%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -104,8 +104,8 @@ img {
 }
 .FC-FP {
   position: absolute;
-  top: 27.8%;
-  left: 13.35%;
+  top: 26%;
+  left: 26%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -119,8 +119,8 @@ img {
 }
 .FO-OP {
   position: absolute;
-  top: 17.1%;
-  left: 69.4%;
+  top: 16%;
+  left: 72.5%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -134,8 +134,8 @@ img {
 }
 .FC-OP {
   position: absolute;
-  top: 24.5%;
-  left: 74.2%;
+  top: 26%;
+  left: 57%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -149,8 +149,8 @@ img {
 }
 .FC1-O {
   position: absolute;
-  top: 58%;
-  left: 81.53%;
+  top: 51%;
+  left: 83%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -164,8 +164,8 @@ img {
 }
 .FC2-O {
   position: absolute;
-  top: 58.9%;
-  left: 68.9%;
+  top: 73%;
+  left: 67%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -177,10 +177,10 @@ img {
   width: 5%;
   outline: none;
 }
-.FO-O {
+/*.FO-O {
   position: absolute;
   top: 68.5%;
-  left: 71.5%;
+  left: 95%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -191,11 +191,11 @@ img {
   border-radius: 10px;
   width: 5%;
   outline: none;
-}
+}*/
 .PV-O {
   position: absolute;
-  top: 65%;
-  left: 46.45%;
+  top: 63%;
+  left: 45%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -209,8 +209,8 @@ img {
 }
 .PV-F {
   position: absolute;
-  top: 65%;
-  left: 42.1%;
+  top: 62%;
+  left: 39%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -235,22 +235,6 @@ img {
   left: 41.9%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-}
-/*Sequence-1 needs to be placed in a good spot*/
-.Sequence-1 {
-  position: absolute;
-  top: 92.5%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #1100ff;
-  color: white;
-  font-size: 10px;
-  padding: 4px 1px;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 8%;
-  outline: none;
 }
 
 html {

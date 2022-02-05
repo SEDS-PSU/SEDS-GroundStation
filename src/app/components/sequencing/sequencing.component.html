@@ -1,29 +1,84 @@
-<div id="sequencing-container">
+<div class="main">
     <h1 align="center">Sequencing</h1>
-
-    <!--testing dropdown menu-->
     
-
-    <button (click)="confirmAdvance()" class="tester" id="tester">
+    <button (click)="confirmAdvance()" class="button" id="tester">
         Apply Step
     </button>
-    <button (click)="selectSequence()" class="selector" id="selector">
-        Select Test Sequence
-    </button>
-    <p class="currentstep" id="currentstep">
+
+    <p align="center" class="currentstep" id="currentstep">
         Current Step: N/A
     </p>
-    <p class="stepinfo" id="stepinfo">
-        Valves to open: N/A
+
+    <div class="step_buttons">
+        <button (click)="advanceStep()" class="button" id="advance">
+            Forward Step
+        </button>
+        <button (click)="reverseStep()" class="button" id="reverse">
+            Reverse Step
+        </button>
+    </div>
+
+    <p align="center">
+        Valves to open/stay open:
     </p>
-    <p>
-        All other valves will close.
+
+    <p align="center" class="stepinfo" id="stepinfo">
+        N/A
     </p>
-    <button (click)="advanceStep()" class="advance" id="advance">
-        Forward Step
-    </button>
-    <button (click)="reverseStep()" class="reverse" id="reverse">
-        Reverse Step
-    </button>
+
+    <p align="center" class="stepinfo">
+        All other valves will close/return to default state.
+    </p>
+    
+    <h3 align="center">
+        Notes:
+    </h3>
+
+    <p align="center" class= "notes" id="notes">
+        Here, notes will be displayed about the selected sequence.
+    </p>
+    
+    <h3 align="center" id="sequence_title">
+        Selected: none
+    </h3>
+
+    <table align="center">
+        <tr>
+            <td>
+                <button style="width:100%" (click)="selectSequence('Ethanol fill')" class="selector" id="selector">
+                    Ethanol fill
+                </button>
+            </td>
+            <td>
+                <button (click)="selectSequence('Hot-fire')" class="selector" id="selector">
+                    Hot-fire
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="selectSequence('Nitrous fill')" class="selector" id="selector">
+                    Nitrous fill
+                </button>
+            </td>
+            <td>
+                <button (click)="selectSequence('Post-test OPS')" class="selector" id="selector">
+                    Post-test OPS
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="selectSequence('Pre-test purge')" class="selector" id="selector">
+                    Pre-test purge
+                </button>
+            </td>
+            <td>
+                <button (click)="selectSequence('Test')" class="selector" id="selector">
+                    Test
+                </button>
+            </td>
+        </tr>
+    </table>
 
 </div>

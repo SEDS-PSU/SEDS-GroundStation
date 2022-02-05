@@ -11,6 +11,7 @@ export class DiagramComponent implements OnInit {
 
   constructor(private message:MessengerService) { }
 
+  //there are 10 valves
   map = new Map([
     ['FO-P', false],
     ['FO-FP', false],
@@ -21,8 +22,8 @@ export class DiagramComponent implements OnInit {
     ['FC2-O', false],
     //['FO-O', false], //get rid of this valve
     ['FC-P', false],
-    ['PV-F', false],
-    ['PV-O', false],
+    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
+    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
     ['KILL', false]
   ]);
 
@@ -135,7 +136,7 @@ export class DiagramComponent implements OnInit {
   //testing sequencing diagram interaction
   private messageSequencing()
   {
-    this.message.sendToSequencing("Hey sequencing");
+    //this.message.sendToSequencing("Hey sequencing");
   }
 
   private pushMessage(x)

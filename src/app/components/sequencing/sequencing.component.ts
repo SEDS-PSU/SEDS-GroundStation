@@ -19,6 +19,10 @@ export class SequencingComponent implements OnInit {
     this.message.sendToDiagram(item); 
   }
 
+  public messageQueue(item:string[]) {
+    this.message.sendQueuedValves(item);
+  }
+
   private showMessage(x) {
     document.getElementById('tester').innerHTML = x;
   }
@@ -99,6 +103,8 @@ export class SequencingComponent implements OnInit {
       valveUpdate += "NONE";
 
     document.getElementById('stepinfo').innerHTML = valveUpdate;
+
+    this.messageQueue(valveData);
 
     document.getElementById("notes").innerHTML = this.sequenceService.getStepNote();
   }

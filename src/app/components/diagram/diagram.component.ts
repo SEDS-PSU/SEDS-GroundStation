@@ -101,6 +101,25 @@ export class DiagramComponent implements OnInit {
 
   } // ends toggleState
 
+  //lets the queued valves blink
+  public queuedState(queued:string[])
+  {
+    for(var [key, value] of this.map.entries()) 
+    {
+      document.getElementById(key).style.borderColor = 'grey';
+    }
+
+    for(var [key, value] of this.map.entries()) 
+    {
+      for(let i = 0; i < queued.length; i++)
+      {
+        let valve = queued[i];
+        if(valve == key)
+          document.getElementById(valve).style.borderColor = 'yellow';
+      }
+    }
+  }
+
   public updateColor() {
 
     for(var [key, value] of this.map.entries()) {
@@ -129,14 +148,6 @@ export class DiagramComponent implements OnInit {
       document.getElementById("WARNING").style.visibility = "visible";
       this.toggleState('KILL');
     }
-
-    this.messageSequencing()
-  }
-
-  //testing sequencing diagram interaction
-  private messageSequencing()
-  {
-    //this.message.sendToSequencing("Hey sequencing");
   }
 
   private pushMessage(x)
@@ -151,5 +162,10 @@ export class DiagramComponent implements OnInit {
         next: x => this.pushMessage(x)
       }
     );
+    this.message.toQueue.subscribe(
+      {
+        next: y => this.queuedState(y)
+      }
+    )
   } //ends void
 }

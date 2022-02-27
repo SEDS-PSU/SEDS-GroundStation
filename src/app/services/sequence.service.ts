@@ -23,8 +23,8 @@ export class SequenceService {
 
 
   testSteps:string[][] = [
-    ['FO-P', 'FO-FP', 'FO-OP'],
-    ['FC-FP', 'FC1-O'],
+    ['FC-P', 'FO-FP', 'FC2-O'],
+    ['FC-P'],
     ['PV-F']
   ];
 
@@ -46,39 +46,70 @@ export class SequenceService {
     Hence, this doesn't really do anything.
   */
   ethanolFill:string[][] = [
+<<<<<<< Updated upstream
     [] //all closed, PV-F set to nitrogen pathway, ***********false is set to NITROGEN PATHWAY***********
   ];
 
   ethanolFillWait:number[] = [
+=======
+    [], //all closed, PV-F set to nitrogen pathway, ***********false is set to NITROGEN PATHWAY***********
+    ['FC-FP'],
+    []
+  ];
+
+  ethanolFillWait:number[] = [
+    0,
+    5,
+>>>>>>> Stashed changes
     0
   ];
 
   ethanolFillNote:string[] = [
+<<<<<<< Updated upstream
     'All computer-controlled valves are set to their default state in this sequence and do not change. This sequence does nothing.'
+=======
+    'All computer-controlled valves are set to their default state in this sequence and do not change. This is used to default all valve states.',
+    'Opens FC-FP for Ethanol-Purge, then wait 5 seconds to close.',
+    'Closes FC-FP.'
+>>>>>>> Stashed changes
   ]
 
   /*NITROUS FILL SEQUENCE
     
   */
   nitrousFill:string[][] = [
+<<<<<<< Updated upstream
     ['FC1-O'],
     [],
     ['FC1-O'],
+=======
+    [],
+    ['FC2-O'],
+>>>>>>> Stashed changes
     []
   ];
 
   nitrousFillWait:number[] = [
     0, 
+<<<<<<< Updated upstream
     0, 
     5, 
+=======
+>>>>>>> Stashed changes
     0
   ];
 
   nitrousFillNote:string[] = [
+<<<<<<< Updated upstream
     'Opens FC1-O.',
     'Closes FC1-O after 22.2 kg on load cell. If pressure is too high, open FC2-O.',
     'FC1-O opens again only for 5 seconds.',
     'FC1-O closes.'
+=======
+    'This step closes everything. Ensure PV-O is set to nitrogen pathway, FC2-O and FO-P2 are set to closed. Make sure PT2-O is under 1000 PSI and TC1-O under 90 F. If pressure is too high, move to next step.',
+    'Move to this step to open FC2-O to allow venting.',
+    'Closes FC2-O'
+>>>>>>> Stashed changes
   ];
 
   /*PRE-TEST PURGE
@@ -87,7 +118,11 @@ export class SequenceService {
   preTestPurge:string[][] = [
     ['FC-P'],
     [],
+<<<<<<< Updated upstream
     ['FO-P'],
+=======
+    ['FO-P1'],
+>>>>>>> Stashed changes
     [],
     ['FC-P'],
     []
@@ -105,8 +140,13 @@ export class SequenceService {
   preTestPurgeNote:string[] = [
     "Opens FC-P for 15 seconds or until PT1-P reads ***NA*** psi. Please check UI, ensure PV-F and PV-O are not flowing to the engine. Ensure FO-P, FC-FP, and FC-OP are closed.",
     "Closes FC-P", //***NA*** doesn't say on NETS operations procedures
+<<<<<<< Updated upstream
     "Opens FO-P, purge starts. Wait until 30 seconds to close or until PT1-P reads 15 psi.", 
     "Closes FO-P",
+=======
+    "Opens FO-P1, purge starts. Wait until 30 seconds to close or until PT1-P reads 15 psi.", 
+    "Closes FO-P1",
+>>>>>>> Stashed changes
     "Opens FC-P. Wait 15 seconds, or until PT1-P ***NA*** psi.",
     "Closes FC-P."
 
@@ -116,7 +156,11 @@ export class SequenceService {
     Note: most of this is quick and should be done by the raspi, not the ground station.
   */
   hotFire:string[][] = [
+<<<<<<< Updated upstream
     ['FC-FP', 'FC-OP'],
+=======
+    ['FC-FP', 'FC-OP'], //says FC-OP should be open in procedures manual but it doesn't exist anymore
+>>>>>>> Stashed changes
     ['FC-FP', 'FC-OP', 'PV-F', 'PV-O'], 
     /*
       At this point, the raspi should do all the work, these are here for testing.

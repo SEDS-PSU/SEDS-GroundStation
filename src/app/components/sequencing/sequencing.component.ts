@@ -31,7 +31,6 @@ export class SequencingComponent implements OnInit {
   public selectSequence(seq:string)
   {
     //selects the sequence
-<<<<<<< Updated upstream
     document.getElementById('sequence_title').innerHTML = 'Selected: '+seq;
     this.sequenceService.select(seq.toLowerCase());
 
@@ -39,18 +38,6 @@ export class SequencingComponent implements OnInit {
     document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.sequenceService.getCurrentStep()+1)
       +"/"+(this.sequenceService.getSequenceLength());
     this.showStepData();
-=======
-    if(confirm("Are you sure you would like to change the currently selected sequence?"))
-    {
-      document.getElementById('sequence_title').innerHTML = 'Selected: '+seq;
-      this.sequenceService.select(seq.toLowerCase());
-
-      //updates the UI to show what step is selected
-      document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.sequenceService.getCurrentStep()+1)
-        +"/"+(this.sequenceService.getSequenceLength());
-      this.showStepData();
-    }
->>>>>>> Stashed changes
   }
 
   //button

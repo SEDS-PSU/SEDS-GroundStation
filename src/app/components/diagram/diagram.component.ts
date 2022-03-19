@@ -12,7 +12,6 @@ export class DiagramComponent implements OnInit {
   constructor(private message:MessengerService) { }
 
   //there are 10 valves
-<<<<<<< Updated upstream
   map = new Map([
     ['FO-P', false],
     ['FO-FP', false],
@@ -25,29 +24,21 @@ export class DiagramComponent implements OnInit {
     ['FC-P', false],
     ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
     ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
-=======
-  map = new Map([ // map of all our valves and their state
-    ['FC-FP', false], // closed/off corresponds to false, open/on corresponds to true
-    ['FO-P1', false],
-    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
-    ['FO-FP', false], 
-    ['FC-P', false],
-    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
-    ['FC2-O', false],
-    ['FO-P2', false],
->>>>>>> Stashed changes
     ['KILL', false]
   ]);
 
-  resetSequence: [string, boolean][] = [ //valves with their base state
+  resetSequence: [string, boolean][] = [
+    ['FO-P', false],
+    ['FO-FP', false],
+    ['FO-OP', false], // This is the base sequence where all valves are closed
+    ['FC-OP', false],
     ['FC-FP', false],
-    ['FO-P1', false],
-    ['PV-F', false], 
-    ['FO-FP', false], 
-    ['FC-P', false],
-    ['PV-O', false],
+    ['FC1-O', false],
     ['FC2-O', false],
-    ['FO-P2', false],
+    //['FO-O', false],
+    ['FC-P', false],
+    ['PV-F', false],
+    ['PV-O', false],
     ['KILL', false]
   ];
 

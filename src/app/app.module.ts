@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { DiagramComponent } from './components/diagram/diagram.component';
 import { DataDisplayComponent } from './components/data-display/data-display.component';
 import { SequencingComponent } from './components/sequencing/sequencing.component';
+import { TcGraphComponent } from './components/tc-graph/tc-graph.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { SequencingComponent } from './components/sequencing/sequencing.componen
     DiagramComponent,
     DataDisplayComponent,
     SequencingComponent,
+    TcGraphComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, ChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

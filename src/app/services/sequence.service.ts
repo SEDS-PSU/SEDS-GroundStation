@@ -46,54 +46,59 @@ export class SequenceService {
     Hence, this doesn't really do anything.
   */
   ethanolFill:string[][] = [
-    [] //all closed, PV-F set to nitrogen pathway, ***********false is set to NITROGEN PATHWAY***********
+    [], //all closed, PV-F set to nitrogen pathway, ***********false is set to NITROGEN PATHWAY***********
+    ['FC-FP'],
+    []
   ];
 
   ethanolFillWait:number[] = [
+    0,
+    5,
     0
   ];
 
   ethanolFillNote:string[] = [
-    'All computer-controlled valves are set to their default state in this sequence and do not change. This sequence does nothing.'
+    'All valves closed. PV-F, PV-O set to nitrogen path. This basically defaults out valves to closed.',
+    'Open FC-FP for 5 seconds for Ethanol Purge, then close.',
+    'Closes FC-FP.'
   ]
 
   /*NITROUS FILL SEQUENCE
     
   */
   nitrousFill:string[][] = [
-    ['FC1-O'],
     [],
-    ['FC1-O'],
+    ['FC2-O'],
     []
   ];
 
   nitrousFillWait:number[] = [
     0, 
-    0, 
-    5, 
+    0,
     0
   ];
 
   nitrousFillNote:string[] = [
-    'Opens FC1-O.',
-    'Closes FC1-O after 22.2 kg on load cell. If pressure is too high, open FC2-O.',
-    'FC1-O opens again only for 5 seconds.',
-    'FC1-O closes.'
+    'All valves closed. (GV-P opens but is not actuated from here)',
+    'If pressure is too high (PT2-O), advance this step. Opens FC2-O.',
+    'Closes FC2-O.'
   ];
 
   /*PRE-TEST PURGE
 
   */
   preTestPurge:string[][] = [
+    [],
     ['FC-P'],
     [],
-    ['FO-P'],
+    ['FO-P1'],
     [],
     ['FC-P'],
     []
   ]; 
 
   preTestPurgeWait:number[] = [
+    0,
     15,
     0,
     30,
@@ -103,13 +108,13 @@ export class SequenceService {
   ];
 
   preTestPurgeNote:string[] = [
-    "Opens FC-P for 15 seconds or until PT1-P reads ***NA*** psi. Please check UI, ensure PV-F and PV-O are not flowing to the engine. Ensure FO-P, FC-FP, and FC-OP are closed.",
-    "Closes FC-P", //***NA*** doesn't say on NETS operations procedures
-    "Opens FO-P, purge starts. Wait until 30 seconds to close or until PT1-P reads 15 psi.", 
-    "Closes FO-P",
-    "Opens FC-P. Wait 15 seconds, or until PT1-P ***NA*** psi.",
-    "Closes FC-P."
-
+    'Ensures all valves (except GV-P) are closed.',
+    'Opens FC-P to charge the resevoir tank. Wait 15 seconds or until PT1-P reaches _____ PSI.',
+    'Closes FC-P',
+    'Opens FO-P1, purge starts. Wait 30 seconds or until PT1-P reads 15 PSI. Allows GN2 to flow into lines.',
+    'Closes FO-P1.',
+    'Opens FC-P. Wait 15 seconds or until PT1-P reads ____ PSI.',
+    'Close FC-P.'
   ];
 
   /*HOT-FIRE

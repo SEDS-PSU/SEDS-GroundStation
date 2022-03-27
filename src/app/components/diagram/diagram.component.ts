@@ -149,7 +149,7 @@ export class DiagramComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //testing sequencing diagram interaction
+    //sequencing diagram interaction
     this.message.toDiagram.subscribe(
       {
         next: x => this.pushMessage(x)

@@ -11,6 +11,7 @@ export class MessengerService {
   toDiagram = new Subject<string>();
   toSequencing = new Subject<string>();
   toQueue = new Subject<string[]>();
+  toTCGraph = new Subject<[string, number[]]>();
 
   /*
     to do: create an object that passes information
@@ -38,5 +39,10 @@ export class MessengerService {
   public sendToSequencing(message)
   {
     this.toSequencing.next(message);
+  }
+
+  public sendToTCGraph(message)
+  {
+    this.toTCGraph.next(message);
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { webSocket } from "rxjs/webSocket";
 //import * as data from '../../assets/Untitled-1.json';
 
-
+/*
 const subject = webSocket("ws://localhost:8081"); // That is the web socket address
 var sensorData:string;
 
@@ -11,28 +11,37 @@ subject.subscribe(
   err => console.log(err),
   () => console.log('complete')
 );
+*/
 
-/*
 @Injectable({
   providedIn: 'root',
 })
-*/
+
 export class DataService {
   data: string[]; // array of random number strings, one for each valve
 
   constructor() {
-    this.data = Array<string>(20).fill(''); // set length based on number of valves
-    setInterval(() => this.parseJSON(sensorData), 1000);
+    //this.data = Array<string>(20).fill(''); // set length based on number of valves
+    //setInterval(() => this.parseJSON(sensorData), 1000);
     //setInterval(() => this.parseJSON(data), 1000);
+
+    this.data = Array<string>(4).fill(''); // set length based on number of valves
+    setInterval(() => this.generateRandomData(), 1000);
   }
   
+  generateRandomData(): void {
+    for (let index = 0; index < this.data.length; index++) {
+      this.data[index] = (Math.random() * 100).toFixed(3);
+    }
+  }
+
   public parseJSON(jsonstring): void {
     /*
     for (let index = 0; index < this.data.length; index++) {
       this.data[index] = ;
     }
     */
-
+    /*
     // Thermocouples
     this.data[0] = (jsonstring.tc1_e == null) ? jsonstring.tc1_e : 0;
     this.data[1] = (jsonstring.tc2_e == null) ? jsonstring.tc2_e : 0;
@@ -60,6 +69,7 @@ export class DataService {
     this.data[17] = (jsonstring.pt4_o == null) ? jsonstring.pt4_o : 0;
     this.data[18] = (jsonstring.pt1_p == null) ? jsonstring.pt1_p : 0;
     this.data[19] = (jsonstring.pt2_p == null) ? jsonstring.pt2_p : 0;
+    */
   }
 
 }

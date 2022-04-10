@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessengerService } from '../../services/messenger.service';
 import { DataService } from '../../services/data.service';
+//import { appendFile } from 'fs';
 
 @Component({
   selector: 'app-diagram',
@@ -71,7 +72,7 @@ export class DiagramComponent implements OnInit {
     will set all buttons to false
   */
   public toggleState(buttonNum) {
-
+    
     if(this.map.get('KILL') === false && buttonNum !== 'KILL'){ // if kill switch is toggled we don't want to be able to change valve states
       if (this.map.get(buttonNum) === false) { // if the button pressed is closed set value to open and change color
           this.map.set(buttonNum, true);

@@ -21,7 +21,10 @@ export class CommunicationService {
   }
 
   private create(url): Subject<MessageEvent> {
+    console.log("Here before new object");
+    console.log(url);
     let ws = new WebSocket(url);
+    console.log("Here after new object");
 
     let observable = Observable.create((obs: Observer<MessageEvent>) => {
       ws.onmessage = obs.next.bind(obs);

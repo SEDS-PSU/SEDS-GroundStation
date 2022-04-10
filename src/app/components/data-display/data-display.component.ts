@@ -13,26 +13,25 @@ export class DataDisplayComponent implements OnInit {
   constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService) {
     commTest.messages.subscribe(msg => {
       console.log("Response from websocket in data display: ", msg);
-      this.data[0] = (Math.round(Number(msg.Data) * 100) / 100).toString();
-      this.data[1] = (Math.round(Number(msg.Data1) * 100) / 100).toString();
-      this.data[2] = (Math.round(Number(msg.Data2) * 100) / 100).toString();
-      this.data[3] = (Math.round(Number(msg.Data3) * 100) / 100).toString();
-      this.data[4] = (Math.round(Number(msg.Data4) * 100) / 100).toString();
-      this.data[5] = (Math.round(Number(msg.Data5) * 100) / 100).toString();
-      this.data[6] = (Math.round(Number(msg.Data6) * 100) / 100).toString();
-      this.data[7] = (Math.round(Number(msg.Data7) * 100) / 100).toString();
-      this.data[8] = (Math.round(Number(msg.Data8) * 100) / 100).toString();
-      this.data[9] = (Math.round(Number(msg.Data9) * 100) / 100).toString();
-      this.data[10] = (Math.round(Number(msg.Data10) * 100) / 100).toString();
-      this.data[11] = (Math.round(Number(msg.Data11) * 100) / 100).toString();
-      this.data[12] = (Math.round(Number(msg.Data12) * 100) / 100).toString();
-      this.data[13] = (Math.round(Number(msg.Data13) * 100) / 100).toString();
-      this.data[14] = (Math.round(Number(msg.Data14) * 100) / 100).toString();
-      this.data[15] = (Math.round(Number(msg.Data15) * 100) / 100).toString();
-      this.data[16] = (Math.round(Number(msg.Data16) * 100) / 100).toString();
-      this.data[17] = (Math.round(Number(msg.Data17) * 100) / 100).toString();
-      this.data[18] = (Math.round(Number(msg.Data18) * 100) / 100).toString();
-      this.data[19] = (Math.round(Number(msg.Data19) * 100) / 100).toString();
+      this.data[0] = (Math.round(Number(msg.PT1_F) * 100) / 100).toString();
+      this.data[1] = (Math.round(Number(msg.PT2_F) * 100) / 100).toString();
+      this.data[2] = (Math.round(Number(msg.PT1_O) * 100) / 100).toString();
+      this.data[3] = (Math.round(Number(msg.PT2_O) * 100) / 100).toString();
+      this.data[4] = (Math.round(Number(msg.PT4_O) * 100) / 100).toString();
+      this.data[5] = (Math.round(Number(msg.PT1_P) * 100) / 100).toString();
+      this.data[6] = (Math.round(Number(msg.PT2_P) * 100) / 100).toString();
+      this.data[7] = (Math.round(Number(msg.PT1_E) * 100) / 100).toString();
+      this.data[8] = (Math.round(Number(msg.PT2_E) * 100) / 100).toString();
+      this.data[9] = (Math.round(Number(msg.TC1_F) * 100) / 100).toString();
+      this.data[10] = (Math.round(Number(msg.TC2_F) * 100) / 100).toString();
+      this.data[11] = (Math.round(Number(msg.TC1_O) * 100) / 100).toString();
+      this.data[12] = (Math.round(Number(msg.TC5_O) * 100) / 100).toString();
+      this.data[13] = (Math.round(Number(msg.TC1_E) * 100) / 100).toString();
+      this.data[14] = (Math.round(Number(msg.TC2_E) * 100) / 100).toString();
+      this.data[15] = (Math.round(Number(msg.FM_F) * 100) / 100).toString();
+      this.data[16] = (Math.round(Number(msg.FM_O) * 100) / 100).toString();
+      this.data[17] = (Math.round(Number(msg.Load1) * 100) / 100).toString();
+      this.data[18] = (Math.round(Number(msg.Load2) * 100) / 100).toString();
 
     });
   }

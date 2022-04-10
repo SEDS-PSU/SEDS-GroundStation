@@ -3,31 +3,30 @@ import { Observable,  Subject} from 'rxjs';
 import { CommunicationService } from "./communication.service";
 import { map } from 'rxjs/operators'; 
 
-//const CHAT_URL = "ws://192.168.1.6:8765";
+const CHAT_URL = "ws://192.168.1.6:8765";
 //const CHAT_URL = "192.168.1.6"
-const CHAT_URL = "ws://127.0.0.1:8765";
+//const CHAT_URL = "ws://127.0.0.1:8765";
 export interface Message{
   Valve: string;
-  Data: string;
-  Data1: string;
-  Data2: string;
-  Data3: string;
-  Data4: string;
-  Data5: string;
-  Data6: string;
-  Data7: string;
-  Data8: string;
-  Data9: string;
-  Data10: string;
-  Data11: string;
-  Data12: string;
-  Data13: string;
-  Data14: string;
-  Data15: string;
-  Data16: string;
-  Data17: string;
-  Data18: string;
-  Data19: string;
+  PT1_F: string;
+  PT2_F: string;
+  PT1_O: string;
+  PT2_O: string;
+  PT4_O: string;
+  PT1_P: string;
+  PT2_P: string;
+  PT1_E: string;
+  PT2_E: string;
+  TC1_F: string;
+  TC2_F: string;
+  TC1_O: string;
+  TC5_O: string;
+  TC1_E: string;
+  TC2_E: string;
+  FM_F: string;
+  FM_O: string;
+  Load1: string;
+  Load2: string;
 }
 
 @Injectable()
@@ -41,26 +40,25 @@ export class CommTestService {
             let data = JSON.parse(response.data);
             return {
               Valve: data.Valve,
-              Data: data.Data,
-              Data1: data.Data1,
-              Data2: data.Data2,
-              Data3: data.Data3,
-              Data4: data.Data4,
-              Data5: data.Data5,
-              Data6: data.Data6,
-              Data7: data.Data7,
-              Data8: data.Data8,
-              Data9: data.Data9,
-              Data10: data.Data10,
-              Data11: data.Data11,
-              Data12: data.Data12,
-              Data13: data.Data13,
-              Data14: data.Data14,
-              Data15: data.Data15,
-              Data16: data.Data16,
-              Data17: data.Data17,
-              Data18: data.Data18,
-              Data19: data.Data19
+              PT1_F: data.PT1_F,
+              PT2_F: data.PT2_F,
+              PT1_O: data.PT1_O,
+              PT2_O: data.PT2_O,
+              PT4_O: data.PT4_O,
+              PT1_P: data.PT1_P,
+              PT2_P: data.PT2_P,
+              PT1_E: data.PT1_E,
+              PT2_E: data.PT2_E,
+              TC1_F: data.TC1_F,
+              TC2_F: data.TC2_F,
+              TC1_O: data.TC1_O,
+              TC5_O: data.TC5_O,
+              TC1_E: data.TC1_E,
+              TC2_E: data.TC2_E,
+              FM_F: data.FM_F,
+              FM_O: data.FM_O,
+              Load1: data.Load1,
+              Load2: data.Load2
             };
           }
         )

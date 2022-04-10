@@ -20,33 +20,32 @@ export class AppComponent {
   }
 
   public message = {
-    Valve: "TC1-E",
-    Data: "DATA",
-    Data1: "Data",
-    Data2: "data",
-    Data3: "Data",
-    Data4: "Data",
-    Data5: "Data",
-    Data6: "Data",
-    Data7: "Data",
-    Data8: "Data",
-    Data9: "Data",
-    Data10: "Data",
-    Data11: "data",
-    Data12: "Data",
-    Data13: "Data",
-    Data14: "Data",
-    Data15: "Data",
-    Data16: "Data",
-    Data17: "Data",
-    Data18: "Data",
-    Data19: "Data"
+    Valve: "data",
+    PT1_F: "data",
+    PT2_F: "data",
+    PT1_O: "data",
+    PT2_O: "data",
+    PT4_O: "data",
+    PT1_P: "data",
+    PT2_P: "data",
+    PT1_E: "data",
+    PT2_E: "data",
+    TC1_F: "data",
+    TC2_F: "data",
+    TC1_O: "data",
+    TC5_O: "data",
+    TC1_E: "data",
+    TC2_E: "data",
+    FM_F: "data",
+    FM_O: "data",
+    Load1: "data",
+    Load2: "data"
   };
 
   sendMsg() {
     console.log("New message from client to websocket: ", this.message);
     this.commTest.messages.next(this.message);
-    this.message.Data = this.randomNum.data[0];
+    this.message.PT1_F = this.randomNum.data[0];
     console.log("after sending message");
   }
   title = 'SEDS-GroundStation';

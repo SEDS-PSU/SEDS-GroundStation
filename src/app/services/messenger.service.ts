@@ -10,6 +10,8 @@ export class MessengerService {
 
   toDiagram = new Subject<string>();
   toSequencing = new Subject<string>();
+  toQueue = new Subject<string[]>();
+  toTCGraph = new Subject<[string, number[]]>();
 
   /*
     to do: create an object that passes information
@@ -29,16 +31,18 @@ export class MessengerService {
     this.toDiagram.next(message);
   }
 
+  public sendQueuedValves(message)
+  {
+    this.toQueue.next(message);
+  }
+
   public sendToSequencing(message)
   {
     this.toSequencing.next(message);
   }
 
-  /*
-    I may set up a way to show valves that will be changed
-    on screen based on the selected step. For example, buttons
-    flashing yellow to indicate which will change.
-  */
-
-
+  public sendToTCGraph(message)
+  {
+    this.toTCGraph.next(message);
+  }
 }

@@ -1,4 +1,4 @@
-#sequencing-container {
+.main {
     display: inline-block;
     position: relative;
     float: right;
@@ -7,3 +7,21 @@
     width: 100%;
     color: white;
 }
+.selector {
+    width: 100%;
+}
+.button {
+    width: 100%;
+}
+.step_buttons {
+    display: flex;
+    justify-content: center;
+}
+.stepinfo {
+    color: rgb(250, 204, 2);
+}
+
+.notes {
+    height: 100px
+}
+

@@ -13,32 +13,26 @@ export class DiagramComponent implements OnInit {
   constructor(private message:MessengerService) { }
 
   map = new Map([
-    ['FO-P', false],
-    ['FO-FP', false],
-    ['FO-OP', false], // map of all our valves and their state
-    ['FC-OP', false], // closed/off corresponds to false, open/on corresponds to true
     ['FC-FP', false],
-    ['FC1-O', false],
+    ['FO-P1', false],
+    ['FO-FP', false], // map of all our valves and their state
+    ['FC-P', false], // closed/off corresponds to false, open/on corresponds to true
     ['FC2-O', false],
-    //['FO-O', false], //get rid of this valve
-    ['FC-P', false],
-    ['PV-F', false],
-    ['PV-O', false],
+    ['FO-P2', false],
+    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
     ['KILL', false]
   ]);
 
-  resetSequence: [string, boolean][] = [
-    ['FO-P', false],
-    ['FO-FP', false],
-    ['FO-OP', false], // This is the base sequence where all valves are closed
-    ['FC-OP', false],
+  resetSequence: [string, boolean][] = [ // This is the base sequence where all valves are closed
     ['FC-FP', false],
-    ['FC1-O', false],
+    ['FO-P1', false],
+    ['FO-FP', false],
+    ['FC-P', false], 
     ['FC2-O', false],
-    //['FO-O', false],
-    ['FC-P', false],
-    ['PV-F', false],
-    ['PV-O', false],
+    ['FO-P2', false],
+    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
     ['KILL', false]
   ];
 
@@ -101,6 +95,25 @@ export class DiagramComponent implements OnInit {
 
   } // ends toggleState
 
+  //lets the queued valves blink
+  public queuedState(queued:string[])
+  {
+    for(var [key, value] of this.map.entries()) 
+    {
+      document.getElementById(key).style.borderColor = 'grey';
+    }
+
+    for(var [key, value] of this.map.entries()) 
+    {
+      for(let i = 0; i < queued.length; i++)
+      {
+        let valve = queued[i];
+        if(valve == key)
+          document.getElementById(valve).style.borderColor = 'yellow';
+      }
+    }
+  }
+
   public updateColor() {
 
     for(var [key, value] of this.map.entries()) {
@@ -129,14 +142,6 @@ export class DiagramComponent implements OnInit {
       document.getElementById("WARNING").style.visibility = "visible";
       this.toggleState('KILL');
     }
-
-    this.messageSequencing()
-  }
-
-  //testing sequencing diagram interaction
-  private messageSequencing()
-  {
-    this.message.sendToSequencing("Hey sequencing");
   }
 
   private pushMessage(x)
@@ -145,11 +150,16 @@ export class DiagramComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //testing sequencing diagram interaction
+    //sequencing diagram interaction
     this.message.toDiagram.subscribe(
       {
         next: x => this.pushMessage(x)
       }
     );
+    this.message.toQueue.subscribe(
+      {
+        next: y => this.queuedState(y)
+      }
+    )
   } //ends void
 }

@@ -8,10 +8,10 @@ import { SequenceService } from '../../services/sequence.service';
   styleUrls: ['./sequencing.component.scss']
 })
 export class SequencingComponent implements OnInit {
-  selected:SequenceService;
+  sequenceService:SequenceService;
 
   constructor(private message:MessengerService) {
-    this.selected = new SequenceService();
+    this.sequenceService = new SequenceService();
   }
 
   //sequencing diagram interaction
@@ -19,19 +19,24 @@ export class SequencingComponent implements OnInit {
     this.message.sendToDiagram(item); 
   }
 
+  public messageQueue(item:string[]) {
+    this.message.sendQueuedValves(item);
+  }
+
   private showMessage(x) {
     document.getElementById('tester').innerHTML = x;
   }
 
   //menu stuff:
-  public selectSequence()
+  public selectSequence(seq:string)
   {
-    //selects the sequence in the dropdown menu
-    this.selected.select('test');
+    //selects the sequence
+    document.getElementById('sequence_title').innerHTML = 'Selected: '+seq;
+    this.sequenceService.select(seq.toLowerCase());
 
     //updates the UI to show what step is selected
-    document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.selected.getCurrentStep()+1)
-      +"/"+(this.selected.getCurrentSequenceLength());
+    document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.sequenceService.getCurrentStep()+1)
+      +"/"+(this.sequenceService.getSequenceLength());
     this.showStepData();
   }
 
@@ -39,13 +44,13 @@ export class SequencingComponent implements OnInit {
   public advanceStep()
   {
     //moves forward one step in the sequence, regardless of wait time
-    if(this.selected.getCurrentStep() < (this.selected.getCurrentSequenceLength() - 1))
+    if(this.sequenceService.getCurrentStep() < (this.sequenceService.getSequenceLength() - 1))
     {
-      this.selected.forward();
+      this.sequenceService.forward();
 
       //updates the UI to show what step is selected
-      document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.selected.getCurrentStep()+1)
-        +"/"+(this.selected.getCurrentSequenceLength());
+      document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.sequenceService.getCurrentStep()+1)
+        +"/"+(this.sequenceService.getSequenceLength());
       this.showStepData();
     }
   }
@@ -54,13 +59,13 @@ export class SequencingComponent implements OnInit {
   public reverseStep()
   {
     //moves backward one step
-    if(this.selected.getCurrentStep() > 0)
+    if(this.sequenceService.getCurrentStep() > 0)
     {
-      this.selected.backward();
+      this.sequenceService.backward();
 
       //updates the UI to show what step is selected
-      document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.selected.getCurrentStep()+1)
-        +"/"+(this.selected.getCurrentSequenceLength());
+      document.getElementById('currentstep').innerHTML = 'Current Step: '+(this.sequenceService.getCurrentStep()+1)
+        +"/"+(this.sequenceService.getSequenceLength());
       this.showStepData();
     }
   }
@@ -70,9 +75,9 @@ export class SequencingComponent implements OnInit {
   {
     //confirms and activates step, also prompts an "are you sure" message
     //if the step includes a wait timer, it will show a countdown to next step
-    if(confirm("Are you sure to apply the currently selected step?") && this.selected.selectedSequence != 'none')
+    if(confirm("Are you sure to apply the currently selected step?") && this.sequenceService.selectedSequence != 'none')
     {
-      this.messageDiagram(this.selected.getCurrentStepData());
+      this.messageDiagram(this.sequenceService.getStepData());
       this.advanceStep();
     }
   }
@@ -80,20 +85,28 @@ export class SequencingComponent implements OnInit {
   //updates UI to show what valves will open when the sequence step is pushed
   private showStepData()
   {
-    var valveUpdate:string = "Valves to open: ";
-    var sequenceData:string[];
+    var valveUpdate:string = "";
+    var valveData:string[];
 
-    sequenceData = this.selected.getCurrentStepData();
+    valveData = this.sequenceService.getStepData();
 
-    for(let i = 0; i < sequenceData.length; i++)
+    //Lists valves in a string to be shown in html
+    for(let i = 0; i < valveData.length; i++)
     {
-      if(i < sequenceData.length-1)
-        valveUpdate += sequenceData[i]+', ';
+      if(i < valveData.length-1)
+        valveUpdate += valveData[i]+', ';
       else
-        valveUpdate += sequenceData[i];
+        valveUpdate += valveData[i];
     }
 
+    if(valveUpdate.length == 0)
+      valveUpdate += "NONE";
+
     document.getElementById('stepinfo').innerHTML = valveUpdate;
+
+    this.messageQueue(valveData);
+
+    document.getElementById("notes").innerHTML = this.sequenceService.getStepNote();
   }
 
   //button

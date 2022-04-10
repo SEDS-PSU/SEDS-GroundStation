@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MessengerService } from 'src/app/services/messenger.service';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { CommTestService } from 'src/app/services/comm-test.service';
 
@@ -10,7 +11,7 @@ import { CommTestService } from 'src/app/services/comm-test.service';
   styleUrls: ['./data-display.component.scss'],
 })
 export class DataDisplayComponent implements OnInit {
-  constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService) {
+  constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
     commTest.messages.subscribe(msg => {
       console.log("Response from websocket in data display: ", msg);
       this.data[0] = (Math.round(Number(msg.PT1_F) * 100) / 100).toString();
@@ -40,30 +41,46 @@ export class DataDisplayComponent implements OnInit {
   interval;
   formData = new FormData();
   output = "";
+  newTCData:[string, number][] = [
+    ['TC1-F', 0],
+    ['TC2-F', 0],
+    ['TC1-O', 0],
+    ['TC5-O', 0],
+    ['TC1-E', 0],
+    ['TC2-E', 0]
+  ];
+
   public dataCollection(){
     this.interval = setInterval(() => {
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
-      
-      document.getElementById('TC1-E').innerHTML = String(this.data[0]);
-      document.getElementById('TC2-E').innerHTML = String(this.data[1]);
-      document.getElementById('TC1-F').innerHTML = String(this.data[2]);
-      document.getElementById('TC2-F').innerHTML = String(this.data[3]);
-      document.getElementById('TC1-O').innerHTML = String(this.data[4]);
-      document.getElementById('TC5-O').innerHTML = String(this.data[5]);
-      document.getElementById('FM-F').innerHTML = String(this.data[6]);
-      document.getElementById('FM-O').innerHTML = String(this.data[7]);
-      document.getElementById('Load1').innerHTML = String(this.data[8]);
-      document.getElementById('Load2').innerHTML = String(this.data[9]);
-      document.getElementById('PT1-F').innerHTML = String(this.data[10]);
-      document.getElementById('PT2-F').innerHTML = String(this.data[11]);
-      document.getElementById('PT1-E').innerHTML = String(this.data[12]);
-      document.getElementById('PT2-E').innerHTML = String(this.data[13]);
-      document.getElementById('PT1-O').innerHTML = String(this.data[14]);
-      document.getElementById('PT2-O').innerHTML = String(this.data[15]);
-      document.getElementById('PT4-O').innerHTML = String(this.data[16]);
-      document.getElementById('PT1-P').innerHTML = String(this.data[17]);
-      document.getElementById('PT2-P').innerHTML = String(this.data[18]);
+      document.getElementById('TC1-E').innerHTML = String(this.dataService.data[0]);
+      document.getElementById('TC2-E').innerHTML = String(this.dataService.data[1]);
+      document.getElementById('TC1-F').innerHTML = String(this.dataService.data[2]);
+      document.getElementById('TC2-F').innerHTML = String(this.dataService.data[3]);
+      document.getElementById('TC1-O').innerHTML = String(this.dataService.data[4]);
+      document.getElementById('TC5-O').innerHTML = String(this.dataService.data[5]);
+      document.getElementById('FM-F').innerHTML = String(this.dataService.data[6]);
+      document.getElementById('FM-O').innerHTML = String(this.dataService.data[7]);
+      document.getElementById('Load1').innerHTML = String(this.dataService.data[8]);
+      document.getElementById('Load2').innerHTML = String(this.dataService.data[9]);
+      document.getElementById('PT1-F').innerHTML = String(this.dataService.data[10]);
+      document.getElementById('PT2-F').innerHTML = String(this.dataService.data[11]);
+      document.getElementById('PT1-E').innerHTML = String(this.dataService.data[12]);
+      document.getElementById('PT2-E').innerHTML = String(this.dataService.data[13]);
+      document.getElementById('PT1-O').innerHTML = String(this.dataService.data[14]);
+      document.getElementById('PT2-O').innerHTML = String(this.dataService.data[15]);
+      document.getElementById('PT4-O').innerHTML = String(this.dataService.data[16]);
+      document.getElementById('PT1-P').innerHTML = String(this.dataService.data[17]);
+      document.getElementById('PT2-P').innerHTML = String(this.dataService.data[18]);
+      //Updates values so they may be sent to the graphs:
+      this.newTCData = [
+        ['TC1-F', Number(this.dataService.data[3])],//Number(this.dataService.data[3])],
+        ['TC2-F', Number(this.dataService.data[4])],
+        ['TC1-O', Number(this.dataService.data[5])]
+      ];
+
+      this.message.sendToTCGraph(this.newTCData);
     },1000)
   }
 

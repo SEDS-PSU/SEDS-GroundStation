@@ -1,67 +1,50 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+div {
+  display: inline-block;
+  position: relative;
+  float: left;
   background: #4a5c91;
   height: 100%;
   width: 100%;
   color: white;
 }
-
-.heading {
-  margin: 20px 0px; // sets vertical margins for 20px, horizontal for 0px 
-  text-decoration: underline;
+h3
+{
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
-.pressureTransducerTable , .thermocoupleTable , .otherTable { //formats tables 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0px;
-}
-
-.tableHeading{
-  text-decoration: underline;
-}
-
-table { //sets default spacing for all tables 
-  border-spacing: 15px;
-}
-
-h1 , h3 { //removes default margin and padding from h1 and h3
-  margin: 0px;
-  padding: 0px;
-}
-
-.recordingButtons{
-  display: flex;
-  gap: 20px;
-}
-
-button{
+.recordDataStart{
+  position: absolute;
+  top: 95%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   color: white;
   font-size: 100%;
-  font-weight: bold;
-  width: 100px;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+  width: 40%;
+  outline: none;
+  background: 	#000080;
 }
-
-.recordDataStart{
-  background: green;
-}
-
 .recordDataStop{
-  background: red;
-}
-
-.downloadButton{
-  background: darkorange;
-  margin: 20px 0px;
-  
+  position: absolute;
+  top: 95%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background: 	#000080;
+  font-size: 100%;
+  width: 40%;
+  outline: none;
 }
 .downloadData{
+  position: absolute;
+  top: 98%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   color: white;
-  text-decoration: none;
+  background: #000080;
+  font-size: 100%;
+  width: 36%;
+  outline: none;
 }

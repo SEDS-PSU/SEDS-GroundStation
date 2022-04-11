@@ -1,24 +1,37 @@
 .header {
   background: #141332;
   color: white;
-  height: 100%;
+  height: 64px; //sets height for header, may have to change later but this accounts for other sections of interface not being in flexbox
   box-sizing: border-box;
-  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 140px;
 }
 
-#logo {
-  height: 100%;
-  width: 25em;
-  line-height: 0;
-  margin: auto;
+.logoComponents{
+  display: flex; //turns components for logo into flex components to be moved
+  align-items: center; //aligns any items children within .logo_components to be vertically aligned
+  gap: 8px; //sets gap between items 
+  
 }
 
-img {
-  float: left;
-  height: 100%;
+p { //removes default padding and margins from p class
+  padding: 0px;
+  margin:0px
 }
-
-p {
-  float: right;
+.logoText {
   font-size: 28px;
+  font-weight: bold;
+  font-family: impact;
+}
+
+.logoPicture , .rocketPicture {
+  height: 50px; //sets height for image
+  width:auto; //auto adjusts width for image dependant on height
+   
+}
+
+.mirror { // mirror function for images
+  transform:scaleX(-1); 
 }

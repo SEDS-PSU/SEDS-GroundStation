@@ -1,10 +1,12 @@
-  <div id="grid">
-    <app-rocket></app-rocket>
-    <app-check-engine></app-check-engine>
-    <app-header></app-header>
-    <app-diagram></app-diagram>
-    <app-data-display></app-data-display>
-    <app-sequencing></app-sequencing>
-    <!--button class="sendMessage" (click)="sendMsg()">Send Message</button>-->
+<div id="grid">
+  <div class="container">
+    <img src="assets/images/rocket.png" class = "rocketPicture mirror" alt="Rocket" />"
   </div>
-  <app-tc-graph></app-tc-graph>
+  <app-header></app-header>
+  <app-check-engine></app-check-engine>
+  <app-diagram></app-diagram>
+  <app-data-display></app-data-display>
+  <app-sequencing></app-sequencing>
+  <button class="sendMessage" (click)="sendMsg()">Send Message</button>
+</div>
+<app-tc-graph></app-tc-graph>

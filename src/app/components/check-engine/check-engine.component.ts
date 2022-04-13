@@ -12,3 +12,8 @@ export class CheckEngineComponent implements OnInit{
     
 }
 
+
+/*NOT SURE IF WE WANT TO ADD FUNCTIONALITY TO CHECK ENGINE BUTTON,
+ Created as an app in case we wanted to add functionality
+ Can easily be recreated in the app.component.scss files as just a border with text
+ if no functionality is desired */

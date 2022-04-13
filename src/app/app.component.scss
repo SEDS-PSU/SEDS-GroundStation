@@ -1,8 +1,10 @@
+
+
 #grid {
   display: grid;
-  grid-template-rows: 4em calc(100vh - 4em);
-  grid-template-columns: 20em calc(100vw - 40em);
-  grid-template-areas: 'header header header' 'data diagram sequencing';
+  grid-template-rows: min-content; //makes rows only as long as they have to be for content
+  grid-template-columns: 1fr 3fr 1fr; //20em calc(100vw - 40em);
+  grid-template-areas: 'rocket header checkEngine' 'data diagram sequencing' ;
 }
 
 app-header {
@@ -19,4 +21,16 @@ app-diagram {
 
 app-sequencing {
   grid-area: sequencing;
+}
+
+app-rocket{
+  grid-area: rocket;
+}
+
+app-check-engine{
+  grid-area:checkEngine
+}
+
+.sendMessage{
+  grid-area: message
 }

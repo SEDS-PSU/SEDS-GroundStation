@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { RocketComponent } from './components/rocket/rocket.component';
+import { CheckEngineComponent } from './components/check-engine/check-engine.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DiagramComponent } from './components/diagram/diagram.component';
 import { DataDisplayComponent } from './components/data-display/data-display.component';
@@ -13,6 +15,8 @@ import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
+    RocketComponent,
+    CheckEngineComponent,
     HeaderComponent,
     DiagramComponent,
     DataDisplayComponent,

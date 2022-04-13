@@ -14,22 +14,34 @@
   transform: translateX(-50%);
   height: 100%;
 }
-
+h1{
+  padding: 0;
+  margin: 0;
+}
 img {
   height: 100%;
   width: auto;
 }
-.killSwitchLabel{
+
+.killSwitchContainer{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
+  justify-items: center;
   position: absolute;
-  border-width: 5px;
-  top: 92.5%;
-  left: 0%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  top: 85%;
+  right: 8%;
+  padding: 10px;
+  border: dashed;
+  border-color:black;
+
+}
+.killSwitchLabel{
+  
   color: black;
   font-size: 30px;
-  width: 150px;
-  outline: none;
+  
 }
 .WARNING{
   position: absolute;
@@ -45,12 +57,7 @@ img {
   visibility: hidden;
 }
 .KILL {
-  position: absolute;
-  border-width: 5px;
-  top: 95%;
-  left: 13%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  
   color: white;
   background-color: red;
   font-size: 15px;

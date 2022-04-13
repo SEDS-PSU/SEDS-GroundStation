@@ -25,7 +25,9 @@ app-check-engine{
   grid-area:checkEngine
 }
 .sendMessage{
-  grid-area: message
+  grid-area: message;
+  font-weight: bold;
+  
 }
 
 // Formatting for rocket image 

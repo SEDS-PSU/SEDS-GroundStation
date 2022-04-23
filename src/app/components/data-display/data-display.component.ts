@@ -75,11 +75,12 @@ export class DataDisplayComponent implements OnInit {
       document.getElementById('PT4-O').innerHTML = String(this.data[16]);
       document.getElementById('PT1-P').innerHTML = String(this.data[17]);
       document.getElementById('PT2-P').innerHTML = String(this.data[18]);
+
       //Updates values so they may be sent to the graphs:
       this.newTCData = [
-        ['TC1-F', Number(this.data[3])],//Number(this.dataService.data[3])],
-        ['TC2-F', Number(this.data[4])],
-        ['TC1-O', Number(this.data[5])]
+        ['TC1-F', Number(this.dataService.data[3])],//Number(this.dataService.data[3])],
+        ['TC2-F', Number(this.dataService.data[4])],
+        ['TC1-O', Number(this.dataService.data[5])]
       ];
 
       this.message.sendToTCGraph(this.newTCData);

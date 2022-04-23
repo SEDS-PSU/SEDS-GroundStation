@@ -1,48 +1,50 @@
-<div class="main">
-    <h1 align="center">Sequencing</h1>
-    
-    <button (click)="confirmAdvance()" class="button" id="tester">
-        Apply Step
-    </button>
-
-    <p align="center" class="currentstep" id="currentstep">
-        Current Step: N/A
-    </p>
-
-    <div class="step_buttons">
-        <button (click)="reverseStep()" class="button" id="reverse">
-            Reverse Step
+<div class="container">
+    <h1 class = 'heading'>Sequencing</h1>
+    <div class = stepBox>
+        <button (click)="confirmAdvance()" class="button" id="tester">
+            Apply Step
         </button>
-        <button (click)="advanceStep()" class="button" id="advance">
-            Forward Step
-        </button>
+
+        <p  class="currentstep" id="currentstep">
+            Current Step: N/A
+        </p>
+        <div class="step_buttons">
+            <button (click)="reverseStep()" class="button" id="reverse">
+                Reverse Step
+            </button>
+            <button (click)="advanceStep()" class="button" id="advance">
+                Forward Step
+            </button>
+        </div>
     </div>
+    <div class = 'valveBox'>   
+        <p >
+            Valves to open/stay open:
+        </p>
 
-    <p align="center">
-        Valves to open/stay open:
-    </p>
+        <p  class="stepinfo" id="stepinfo">
+            N/A
+        </p>
 
-    <p align="center" class="stepinfo" id="stepinfo">
-        N/A
-    </p>
+        <p  class="stepinfo">
+            All other valves will close/return to default state.
+        </p>
+    </div>
+    <div class = 'noteBox'>
+        <h3 >
+            Notes:
+        </h3>
 
-    <p align="center" class="stepinfo">
-        All other valves will close/return to default state.
-    </p>
+        <p id="notes">
+            Here, notes will be displayed about the selected sequence.
+        </p>
+    </div>
     
-    <h3 align="center">
-        Notes:
-    </h3>
-
-    <p align="center" class= "notes" id="notes">
-        Here, notes will be displayed about the selected sequence.
-    </p>
-    
-    <h3 align="center" id="sequence_title">
+    <h3  id="sequence_title">
         Selected: none
     </h3>
 
-    <table align="center">
+    <table >
         <tr>
             <td>
                 <button style="width:100%" (click)="selectSequence('Ethanol fill')" class="selector" id="selector">

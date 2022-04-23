@@ -1,85 +1,102 @@
-<div>
-  <h1 align="center">Sensor Data</h1>
-  <h3 align="center">Pressure Transducer</h3>
-  <table style="border-spacing: 15px">
-    <tr>
-      <th></th>
-      <th>(Units)</th>
-      <th></th>
-      <th>(Units)</th>
-    </tr>
-    <tr>
-      <td>PT1-F:</td>
-      <td id="PT1-F">DATA</td>
-      <td>PT1-P:</td>
-      <td id="PT1-P">DATA</td>
-    </tr>
-    <tr>
-      <td>PT2-F:</td>
-      <td id="PT2-F">DATA</td>
-      <td>PT2-P:</td>
-      <td id="PT2-P">DATA</td>
-    </tr>
-    <tr>
-      <td>PT1-O:</td>
-      <td id="PT1-O">DATA</td>
-      <td>PT1-E:</td>
-      <td id="PT1-E">DATA</td>
-    </tr>
-    <tr>
-      <td>PT2-O:</td>
-      <td id="PT2-O">DATA</td>
-      <td>PT2-E:</td>
-      <td id="PT2-E">DATA</td>
-    </tr>
-    <tr>
-      <td>PT4-O:</td>
-      <td id="PT4-O">DATA</td>
-    </tr>
-  </table>
-  <h3 align="center">Thermocouple</h3>
-  <table style="border-spacing: 15px">
-      <th></th>
-      <th>(Units)</th>
-      <th></th>
-      <th>(Units)</th>
-    <tr>
-      <td>TC1-F:</td>
-      <td id="TC1-F">DATA</td>
-      <td>TC5-O:</td>
-      <td id="TC5-O">DATA</td>
-    </tr>
-    <tr>
-      <td>TC2-F:</td>
-      <td id="TC2-F">DATA</td>
-      <td>TC1-E:</td>
-      <td id="TC1-E">DATA</td>
-    </tr>
-    <tr>
-      <td>TC1-O:</td>
-      <td id="TC1-O">DATA</td>
-      <td>TC2-E:</td>
-      <td id="TC2-E">DATA</td>
-    </tr>
-  </table>
-  <h3 align="center">Other</h3>
-  <table style="border-spacing: 15px">
-    <tr>
-      <td>FM-F:</td>
-      <td id="FM-F">DATA</td>
-      <td>FM-O:</td>
-      <td id="FM-O">DATA</td>
-    </tr>
-    <tr>
-      <td>Load1:</td>
-      <td id="Load1">DATA</td>
-      <td>Load2:</td>
-      <td id="Load2">DATA</td>
-    </tr>
-  </table>
-
-  <button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart">
-    Start Recording
+<div class = 'container'>
+  <div class ='heading'>
+    <h1>Sensor Data</h1>
+    
+  </div>
+  <div class = 'pressureTransducerTable'>
+    <h3 class="tableHeading">Pressure Transducer</h3>
+    <table>
+      <tr>
+        <th></th>
+        <th>(Units)</th>
+        <th></th>
+        <th>(Units)</th>
+      </tr>
+      <tr>
+        <td>PT1-F:</td>
+        <td id="PT1-F">DATA</td>
+        <td>PT1-P:</td>
+        <td id="PT1-P">DATA</td>
+      </tr>
+      <tr>
+        <td>PT2-F:</td>
+        <td id="PT2-F">DATA</td>
+        <td>PT2-P:</td>
+        <td id="PT2-P">DATA</td>
+      </tr>
+      <tr>
+        <td>PT1-O:</td>
+        <td id="PT1-O">DATA</td>
+        <td>PT1-E:</td>
+        <td id="PT1-E">DATA</td>
+      </tr>
+      <tr>
+        <td>PT2-O:</td>
+        <td id="PT2-O">DATA</td>
+        <td>PT2-E:</td>
+        <td id="PT2-E">DATA</td>
+      </tr>
+      <tr>
+        <td>PT4-O:</td>
+        <td id="PT4-O">DATA</td>
+      </tr>
+    </table>
+  </div> 
+  <div class ='thermocoupleTable'>
+    <h3 class="tableHeading">Thermocouple</h3>
+    <table >
+        <th></th>
+        <th>(Units)</th>
+        <th></th>
+        <th>(Units)</th>
+      <tr>
+        <td>TC1-F:</td>
+        <td id="TC1-F">DATA</td>
+        <td>TC5-O:</td>
+        <td id="TC5-O">DATA</td>
+        
+      </tr>
+      <tr>
+        <td>TC2-F:</td>
+        <td id="TC2-F">DATA</td>
+        <td>TC1-E:</td>
+        <td id="TC1-E">DATA</td>
+      </tr>
+      <tr>
+        <td>TC1-O:</td>
+        <td id="TC1-O">DATA</td>
+        <td>TC2-E:</td>
+        <td id="TC2-E">DATA</td>
+      </tr>
+    </table>
+  </div>
+  <div class = 'otherTable'>
+    <h3 class="tableHeading" >Other</h3>
+    <table>
+      <tr>
+        <td>FM-F:</td>
+        <td id="FM-F">DATA</td>
+        <td>FM-O:</td>
+        <td id="FM-O">DATA</td>
+      </tr>
+      <tr>
+        <td>Load1:</td>
+        <td id="Load1">DATA</td>
+        <td>Load2:</td>
+        <td id="Load2">DATA</td>
+      </tr>
+    </table>
+  </div>
+    <div class = 'recordingButtons'>
+      <button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart"> <!--Deleted id from line, since class is selected, id not needed-->
+        Start Recording
+      </button>
+      <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop"> <!--Deleted id from line, since class is selected, id not needed-->
+        Stop Recording
+      </button>
+    </div>
+    <button class="downloadButton">
+    <a [href]="fileUrl" download="Data.txt" class="downloadData">Download File</a> 
   </button>
   <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop">
     Stop Recording

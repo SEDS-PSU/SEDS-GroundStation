@@ -36,6 +36,8 @@ export class DataDisplayComponent implements OnInit {
 
     });
   }
+  newHandle;
+  writableStream;
   data: string[] = [];
   timeLeft: number = 5;
   interval;
@@ -50,11 +52,11 @@ export class DataDisplayComponent implements OnInit {
     ['TC2-E', 0]
   ];
 
-  public dataCollection(){
-    this.interval = setInterval(() => {
+  public async dataCollection(){
+    this.interval = setInterval(async () => {
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
-      document.getElementById('TC1-E').innerHTML = String(this.data[0]);
+      document.getElementById('TC1-E').innerHTML = String(this.dataService.data[0]);
       document.getElementById('TC2-E').innerHTML = String(this.data[1]);
       document.getElementById('TC1-F').innerHTML = String(this.data[2]);
       document.getElementById('TC2-F').innerHTML = String(this.data[3]);
@@ -81,13 +83,38 @@ export class DataDisplayComponent implements OnInit {
       ];
 
       this.message.sendToTCGraph(this.newTCData);
+
+      //---- Writing data to a file
+      // Creating the data
+      const obj = {TC1_E: String(this.dataService.data[0]),
+                   TC2_E: String(this.dataService.data[1])};
+      const blob = new Blob([JSON.stringify(obj, null, 2)], {type : 'application/json'});
+    
+      // create a FileSystemWritableFileStream to write to
+      
+    
+      // write our file
+      let size = (await this.newHandle.getFile()).size;
+      console.log(size);
+      await this.writableStream.write({
+        type: "write", 
+        position: size,
+        data: blob
+      });
+    
+      // close the file and write the contents to disk.
+  
+      
+
     },1000)
   }
 
   name = 'Angular 5';
-  fileUrl;
+  fileUrl;  
   public recordDataStart(){}
-  public recordDataStop(){}
+  public async recordDataStop(){
+    this.writableStream = await this.newHandle.createWritable();
+  }
   public downloadData(){
     //this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
   }
@@ -100,5 +127,47 @@ export class DataDisplayComponent implements OnInit {
     var fileName = "DATA_HERE.txt"
     var blob = new Blob([fileText], {type: 'text/plain'})
     this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+  }
+
+  pickerOpts = {
+    types: [
+      {
+        description: 'Images',
+        accept: {
+          'image/*': ['.png', '.gif', '.jpeg', '.jpg', '.txt']
+        }
+      },
+    ],
+    excludeAcceptAllOption: true,
+    multiple: false
+  };
+  public async button() {
+    /*
+    let fileHandle = await window.showOpenFilePicker(this.pickerOpts);
+    if(fileHandle.kind === 'directory'){
+      console.log("ERROR: Chose a directory not a file")
+    }
+    const fileData = await fileHandle.getFile();
+    console.log(fileData);
+    console.log("Hit button");
+    */
+   //this.saveFile();
+   this.newHandle = await window.showSaveFilePicker();
+   this.writableStream = await this.newHandle.createWritable();
+  }
+  public async saveFile() {
+    const obj = {hello: 'world'};
+    const blob = new Blob([JSON.stringify(obj, null, 2)], {type : 'application/json'});
+    // create a new handle
+    const newHandle = await window.showSaveFilePicker();
+  
+    // create a FileSystemWritableFileStream to write to
+    const writableStream = await newHandle.createWritable();
+  
+    // write our file
+    await writableStream.write(blob);
+  
+    // close the file and write the contents to disk.
+    await writableStream.close();
   }
 }

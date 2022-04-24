@@ -21,6 +21,7 @@
     "@angular/router": "~11.2.0",
     "@types/wicg-file-system-access": "^2020.9.5",
     "chart.js": "^2.9.4",
+    "file-system-access": "^1.0.2",
     "ng2-charts": "^2.4.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

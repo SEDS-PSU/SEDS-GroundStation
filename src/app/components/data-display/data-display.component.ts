@@ -4,6 +4,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { CommTestService } from 'src/app/services/comm-test.service';
+import { ThrowStmt } from '@angular/compiler';
+import { FileSystemFileHandle } from 'file-system-access';
+
 
 @Component({
   selector: 'app-data-display',
@@ -85,6 +88,7 @@ export class DataDisplayComponent implements OnInit {
 
       this.message.sendToTCGraph(this.newTCData);
 
+      /*
       //---- Writing data to a file
       // Creating the data
       const obj = {TC1_E: String(this.dataService.data[0]),
@@ -92,17 +96,19 @@ export class DataDisplayComponent implements OnInit {
       const blob = new Blob([JSON.stringify(obj, null, 2)], {type : 'application/json'});
     
       // create a FileSystemWritableFileStream to write to
-      
     
       // write our file
+      this.writableStream = await this.newHandle.createWritable();
       let size = (await this.newHandle.getFile()).size;
       console.log(size);
+      console.log((await this.newHandle.getFile()).text)
       await this.writableStream.write({
         type: "write", 
         position: size,
         data: blob
       });
-    
+      await this.writableStream.close();
+      */
       // close the file and write the contents to disk.
   
       
@@ -114,7 +120,7 @@ export class DataDisplayComponent implements OnInit {
   fileUrl;  
   public recordDataStart(){}
   public async recordDataStop(){
-    this.writableStream = await this.newHandle.createWritable();
+    await this.writableStream.close();
   }
   public downloadData(){
     //this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
@@ -152,23 +158,15 @@ export class DataDisplayComponent implements OnInit {
     console.log(fileData);
     console.log("Hit button");
     */
-   //this.saveFile();
+   this.saveFile();
+   /*
    this.newHandle = await window.showSaveFilePicker();
    this.writableStream = await this.newHandle.createWritable();
+   let fileData = await this.newHandle.getFile();
+   console.log(fileData);
+   */
   }
   public async saveFile() {
-    const obj = {hello: 'world'};
-    const blob = new Blob([JSON.stringify(obj, null, 2)], {type : 'application/json'});
-    // create a new handle
-    const newHandle = await window.showSaveFilePicker();
-  
-    // create a FileSystemWritableFileStream to write to
-    const writableStream = await newHandle.createWritable();
-  
-    // write our file
-    await writableStream.write(blob);
-  
-    // close the file and write the contents to disk.
-    await writableStream.close();
+    
   }
 }

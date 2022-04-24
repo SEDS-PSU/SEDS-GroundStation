@@ -3,8 +3,7 @@ export {};
 declare global {
   interface Window {
     showOpenFilePicker: any;
-    getFile: any;
-    showSaveFilePicker
+    showSaveFilePicker: any;
     gtag: (...args: any[]) => void;
   }
 }

@@ -26,6 +26,7 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "websocket": "^1.0.34",
+    "write-json-file": "^5.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

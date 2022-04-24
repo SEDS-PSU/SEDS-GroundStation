@@ -27,11 +27,13 @@ h1 , h3 { //removes default margin and padding from h1 and h3
   margin: 0px;
   padding: 0px;
 }
-.recordingButtons{
+.recordingButtons, .downloadOpenPosition{
   display: flex;
   gap: 20px;
 }
-button{
+
+
+button {
   color: white;
   font-size: 100%;
   font-weight: bold;
@@ -39,6 +41,8 @@ button{
   padding: 10px;
   border-radius: 8px;
   text-align: center;
+  height: auto;
+  
 }
 .recordDataStart{
   background: green;
@@ -48,9 +52,12 @@ button{
 }
 .downloadButton{
   background: darkorange;
-  margin: 20px 0px;
 }
 .downloadData{
   color: white;
   text-decoration: none;
+}
+
+.openFileButton{
+  background: pink;
 }

@@ -5,7 +5,7 @@ import { MessengerService } from 'src/app/services/messenger.service';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { CommTestService } from 'src/app/services/comm-test.service';
 import { ThrowStmt } from '@angular/compiler';
-import { FileSystemFileHandle } from 'file-system-access';
+//import { FileSystemFileHandle } from 'file-system-access';
 
 
 @Component({

@@ -23,9 +23,10 @@
 table { //sets default spacing for all tables
   border-spacing: 15px;
 }
-h1 , h3 { //removes default margin and padding from h1 and h3
+h1 , h3, ul { //removes default margin and padding from h1 and h3
   margin: 0px;
   padding: 0px;
+  list-style: none;
 }
 .recordingButtons, .downloadOpenPosition{
   display: flex;

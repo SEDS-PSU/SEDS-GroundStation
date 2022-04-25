@@ -20,7 +20,7 @@ h1, p, td, h3{ //removes default margin and padding for headings/paragraphs
 button {
     width: 100px;
     height: 60px;
-    color: white;
+    color: green;
     font-size: 100%;
     font-weight: bold;
     padding: 10px;
@@ -39,7 +39,7 @@ button {
 
 }
 
-.stepBox, .valveBox, .noteBox{
+.stepBox, .valveBox, .noteBox, .killSwitchBox{
     display: flex;
     flex-direction: column;
     align-items: center;

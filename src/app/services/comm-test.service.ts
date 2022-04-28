@@ -6,44 +6,44 @@ import { map } from 'rxjs/operators';
 const CHAT_URL = "ws://192.168.1.6:8765";
 //const CHAT_URL = "192.168.1.6"
 //const CHAT_URL = "ws://127.0.0.1:8765";
-export interface Message{
-  Valve: string;
-  PT1_F: string;
-  PT2_F: string;
-  PT1_O: string;
-  PT2_O: string;
-  PT4_O: string;
-  PT1_P: string;
-  PT2_P: string;
-  PT1_E: string;
-  PT2_E: string;
-  TC1_F: string;
-  TC2_F: string;
-  TC1_O: string;
-  TC5_O: string;
-  TC1_E: string;
-  TC2_E: string;
-  FM_F: string;
-  FM_O: string;
-  Load1: string;
-  Load2: string;
+export interface SensorData{
+  PT1_F: number | undefined;
+  PT2_F: number | undefined;
+  PT1_O: number | undefined;
+  PT2_O: number | undefined;
+  PT3_O: number | undefined;
+  PT4_O: number | undefined;
+  PT1_P: number | undefined;
+  PT2_P: number | undefined;
+  PT1_E: number | undefined;
+  PT2_E: number | undefined;
+  TC1_F: number | undefined;
+  TC2_F: number | undefined;
+  TC1_O: number | undefined;
+  TC5_O: number | undefined;
+  TC1_E: number | undefined;
+  TC2_E: number | undefined;
+  FM_F: number | undefined;
+  FM_O: number | undefined;
+  ThrustLoadCell: number | undefined;
+  NitrousLoadCell: number | undefined;
 }
 
 @Injectable()
 export class CommTestService {
-  public messages: Subject<Message>;
+  public messages: Subject<SensorData>;
   constructor(wsService: CommunicationService) { 
-    this.messages = <Subject<Message>>wsService.connect(CHAT_URL)
+    this.messages = <Subject<SensorData>>wsService.connect(CHAT_URL)
       .pipe(
         map(
-          (response: MessageEvent): Message => {
+          (response: MessageEvent): SensorData => {
             let data = JSON.parse(response.data);
             return {
-              Valve: data.Valve,
               PT1_F: data.PT1_F,
               PT2_F: data.PT2_F,
               PT1_O: data.PT1_O,
               PT2_O: data.PT2_O,
+              PT3_O: data.PT3_O,
               PT4_O: data.PT4_O,
               PT1_P: data.PT1_P,
               PT2_P: data.PT2_P,
@@ -57,8 +57,8 @@ export class CommTestService {
               TC2_E: data.TC2_E,
               FM_F: data.FM_F,
               FM_O: data.FM_O,
-              Load1: data.Load1,
-              Load2: data.Load2
+              ThrustLoadCell: data.Load1,
+              NitrousLoadCell: data.Load2
             };
           }
         )

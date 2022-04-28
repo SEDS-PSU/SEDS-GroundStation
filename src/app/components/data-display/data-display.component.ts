@@ -16,6 +16,8 @@ import { ThrowStmt } from '@angular/compiler';
 export class DataDisplayComponent implements OnInit {
   constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
     commTest.messages.subscribe(msg => {
+
+      // NEEDS UPDATED
       console.log("Response from websocket in data display: ", msg);
       this.data[0] = (Math.round(Number(msg.PT1_F) * 100) / 100).toString();
       this.data[1] = (Math.round(Number(msg.PT2_F) * 100) / 100).toString();
@@ -34,13 +36,14 @@ export class DataDisplayComponent implements OnInit {
       this.data[14] = (Math.round(Number(msg.TC2_E) * 100) / 100).toString();
       this.data[15] = (Math.round(Number(msg.FM_F) * 100) / 100).toString();
       this.data[16] = (Math.round(Number(msg.FM_O) * 100) / 100).toString();
-      this.data[17] = (Math.round(Number(msg.Load1) * 100) / 100).toString();
-      this.data[18] = (Math.round(Number(msg.Load2) * 100) / 100).toString();
+      this.data[17] = (Math.round(Number(msg.ThrustLoadCell) * 100) / 100).toString();
+      this.data[18] = (Math.round(Number(msg.ThrustLoadCell) * 100) / 100).toString();
 
     });
   }
   newHandle;
   writableStream;
+  isRecording = false;
   data: string[] = [];
   timeLeft: number = 5;
   interval;
@@ -88,27 +91,36 @@ export class DataDisplayComponent implements OnInit {
 
       this.message.sendToTCGraph(this.newTCData);
 
-      /*
+      
       //---- Writing data to a file
       // Creating the data
+      
       const obj = {TC1_E: String(this.dataService.data[0]),
                    TC2_E: String(this.dataService.data[1])};
       const blob = new Blob([JSON.stringify(obj, null, 2)], {type : 'application/json'});
-    
+  
       // create a FileSystemWritableFileStream to write to
     
       // write our file
-      this.writableStream = await this.newHandle.createWritable();
-      let size = (await this.newHandle.getFile()).size;
-      console.log(size);
-      console.log((await this.newHandle.getFile()).text)
-      await this.writableStream.write({
-        type: "write", 
-        position: size,
-        data: blob
-      });
-      await this.writableStream.close();
-      */
+      if(this.isRecording){
+        let currFile = await this.newHandle.getFile();
+        let currText = await currFile.text();
+        let writeNext = "\n{\n\tTC1-E: " + String(this.dataService.data[0]) + "\t" + 
+                        "\n\tTC2-E: " + String(this.dataService.data[1]) + "\t" + 
+                        "\n\tTC1-F: " + String(this.dataService.data[2]) + "\t" + 
+                        "\n\tTC1-F: " + String(this.dataService.data[3]) + "\n},"
+                        + currText;
+        let size = (await this.newHandle.getFile()).size;
+        console.log((await this.newHandle.getFile()).text)
+        this.writableStream = await this.newHandle.createWritable();
+        await this.writableStream.write({type: "write", position: 0, data: writeNext});
+        await this.writableStream.close();
+        let fileData = await this.newHandle.getFile();
+        let contents = await fileData.text();
+        console.log(fileData);
+        console.log("File Data ", contents);
+      }
+        
       // close the file and write the contents to disk.
   
       
@@ -118,15 +130,34 @@ export class DataDisplayComponent implements OnInit {
 
   name = 'Angular 5';
   fileUrl;  
-  public recordDataStart(){}
-  public async recordDataStop(){
+
+  // This is for testing
+  public async recordDataStart(){
+    let size = (await this.newHandle.getFile()).size;
+    let currFile = await this.newHandle.getFile();
+    let currText = await currFile.text();
+    let writeNext = "Hello World\nHello World\nHello World\nHello World\nHello World\nHello World\nHello World\nHello World\nHello World\nHello World\n";
+  
+    this.writableStream = await this.newHandle.createWritable();
+    await this.writableStream.write({
+      type: "write", 
+      position: size,
+      data: writeNext
+    });
     await this.writableStream.close();
-  }
-  public downloadData(){
-    //this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+    let fileData = await this.newHandle.getFile();
+    let contents = await fileData.text();
+    console.log(fileData);
+    console.log("File Data ", contents);
   }
 
-
+  // Stop recording data to the file
+  public async recordDataStop(){
+    this.isRecording = false;
+  }
+  public async downloadData(){
+    
+  }
 
   ngOnInit(): void {
     this.dataCollection();
@@ -149,24 +180,10 @@ export class DataDisplayComponent implements OnInit {
     multiple: false
   };
   public async button() {
-    /*
-    let fileHandle = await window.showOpenFilePicker(this.pickerOpts);
-    if(fileHandle.kind === 'directory'){
-      console.log("ERROR: Chose a directory not a file")
-    }
-    const fileData = await fileHandle.getFile();
-    console.log(fileData);
-    console.log("Hit button");
-    */
-   this.saveFile();
-   /*
    this.newHandle = await window.showSaveFilePicker();
-   this.writableStream = await this.newHandle.createWritable();
-   let fileData = await this.newHandle.getFile();
-   console.log(fileData);
-   */
+   this.isRecording = true;
   }
   public async saveFile() {
-    
+
   }
 }

@@ -44,6 +44,17 @@ img {
   font-size: 30px;
   
 }
+/*.stepButtonContainer{
+  border: dashed;
+  border-color: black;
+  position: absolute;
+  top: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+}*/
 .WARNING{
   position: absolute;
   border-width: 5px;
@@ -146,8 +157,8 @@ img {
 .FO2_O {
   position: absolute;
   border-width: 5px;
-  top: 72%;
-  left: 82%;
+  top: 36%;
+  left: 66%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;
@@ -194,8 +205,8 @@ img {
 .FC3_O {
   position: absolute;
   border-width: 5px;
-  top: 62%;
-  left: 72%;
+  top: 59%;
+  left: 68.5%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #ff0000;

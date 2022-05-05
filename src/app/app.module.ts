@@ -10,6 +10,7 @@ import { DataDisplayComponent } from './components/data-display/data-display.com
 import { SequencingComponent } from './components/sequencing/sequencing.component';
 import { TcGraphComponent } from './components/tc-graph/tc-graph.component';
 import { ChartsModule } from 'ng2-charts';
+import { ElectronicStatesComponent } from './components/electronic-states/electronic-states.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ChartsModule } from 'ng2-charts';
     DataDisplayComponent,
     SequencingComponent,
     TcGraphComponent,
+    ElectronicStatesComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ChartsModule],
   providers: [],

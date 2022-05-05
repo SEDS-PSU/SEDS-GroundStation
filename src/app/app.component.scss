@@ -2,7 +2,7 @@
   display: grid;
   grid-template-rows: auto; //makes rows only as long as they have to be for content
   grid-template-columns: 1fr 3fr 1fr; //20em calc(100vw - 40em);
-  grid-template-areas: 'rocket header checkEngine' 'data diagram diagram'  'message empty empty';
+  grid-template-areas: 'rocket header checkEngine' 'data diagram electronic-states'  'message empty empty';
 }
 
 app-header {
@@ -22,7 +22,11 @@ app-sequencing {
 }
 
 app-check-engine{
-  grid-area:checkEngine
+  grid-area:checkEngine;
+}
+
+app-electronic-states{
+  grid-area: electronic-states; 
 }
 .sendMessage{
   grid-area: message;

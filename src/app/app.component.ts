@@ -13,13 +13,14 @@ import { RandomDataService } from './services/random-data.service';
 export class AppComponent {
   constructor(private randomNum: RandomDataService, private commTest: CommTestService){
     commTest.messages.subscribe(msg => {
-      console.log("Response from websocket: ", msg);
+      
     });
 
     this.sendMsg();
   }
 
   public SensorData = {
+    TIMESTAMP: 0,
     PT1_F: 0,
     PT2_F: 0,
     PT1_O: 0,

@@ -68,7 +68,18 @@ img {
   width: 100px;
   outline: none;
 }
-.FC-FP {
+.SEND {
+  
+  color: white;
+  background-color: red;
+  font-size: 15px;
+  padding: 20px 20px;
+  cursor: pointer;
+  border-radius: 10%;
+  width: 100px;
+  outline: none;
+}
+.FC_FP {
   position: absolute;
   border-width: 5px;
   top: 26%;
@@ -84,7 +95,7 @@ img {
   width: 6%;
   outline: none;
 }
-.FO-P1 {
+.FO_P1 {
   position: absolute;
   border-width: 5px;
   top: 54%;
@@ -100,7 +111,7 @@ img {
   width: 6%;
   outline: none;
 }
-.FO-FP {
+.FO_FP {
   position: absolute;
   border-width: 5px;
   top: 18%;
@@ -116,7 +127,7 @@ img {
   width: 6%;
   outline: none;
 }
-.FC-P {
+.FC_P {
   position: absolute;
   border-width: 5px;
   top: 38%;
@@ -132,7 +143,7 @@ img {
   width: 6%;
   outline: none;
 }
-.FC2-O {
+.FO2_O {
   position: absolute;
   border-width: 5px;
   top: 72%;
@@ -148,7 +159,39 @@ img {
   width: 6%;
   outline: none;
 }
-.FO-P2 {
+.FC1_F {
+  position: absolute;
+  border-width: 5px;
+  top: 60%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #ff0000;
+  color: white;
+  font-size: 10px;
+  padding: 4px 1px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 6%;
+  outline: none;
+}
+.FC4_O {
+  position: absolute;
+  border-width: 5px;
+  top: 55%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #ff0000;
+  color: white;
+  font-size: 10px;
+  padding: 4px 1px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 6%;
+  outline: none;
+}
+.FC3_O {
   position: absolute;
   border-width: 5px;
   top: 62%;
@@ -164,7 +207,7 @@ img {
   width: 6%;
   outline: none;
 }
-.PV-O {
+.PV_O {
   position: absolute;
   border-width: 5px;
   top: 65%;
@@ -180,7 +223,7 @@ img {
   width: 6%;
   outline: none;
 }
-.PV-F {
+.PV_F {
   position: absolute;
   border-width: 5px;
   top: 65%;

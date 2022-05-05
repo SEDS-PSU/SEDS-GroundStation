@@ -65,6 +65,7 @@ export class DiagramComponent implements OnInit {
     this.updateValveStates();
     console.log("Sending valve states ");
     this.commTest.valveMessages.next(this.ValveStates);
+    console.log(this.ValveStates);
     console.log("Valve States Sent ", this.ValveStates);
     console.log("After sending valve states");
   }
@@ -85,6 +86,29 @@ export class DiagramComponent implements OnInit {
   }
 
   public updateValveStates(){
+    for(var [key, value] of this.map.entries()) 
+    {
+      console.log(key);
+      if(key !== 'KILL'){
+        if(key === 'PV_F' || key === "PV_O"){
+          if(value === true){
+            this.ValveStates.SetValves[key] = "nitrogen";
+          }
+          else{
+            this.ValveStates.SetValves[key] = "fueloxidizer";
+          }
+        }
+        else{
+          if(value === true){
+            this.ValveStates.SetValves[key] = "open";
+          }
+          else{
+            this.ValveStates.SetValves[key] = "closed";
+          }
+        }
+      }
+    }
+    /*
     if(this.map.get('FO_FP') === true){
       this.ValveStates.SetValves.FO_FP = "open";
     }
@@ -154,6 +178,7 @@ export class DiagramComponent implements OnInit {
     else{
       this.ValveStates.SetValves.PV_O = "fueloxidizer";
     }
+    */
   }
 
   /* method to iterate through and update 

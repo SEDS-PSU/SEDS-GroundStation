@@ -24,7 +24,7 @@ export class DataDisplayComponent implements OnInit {
       this.data[1] = (Math.round(Number(msg.PT2_F) * 100) / 100).toString();
       this.data[2] = (Math.round(Number(msg.PT1_O) * 100) / 100).toString();
       this.data[3] = (Math.round(Number(msg.PT2_O) * 100) / 100).toString();
-      this.data[4] = (Math.round(Number(msg.PT2_O) * 100) / 100).toString();
+      this.data[4] = (Math.round(Number(msg.PT3_O) * 100) / 100).toString();
       this.data[5] = (Math.round(Number(msg.PT4_O) * 100) / 100).toString();
       this.data[6] = (Math.round(Number(msg.PT1_P) * 100) / 100).toString();
       this.data[7] = (Math.round(Number(msg.PT2_P) * 100) / 100).toString();

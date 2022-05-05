@@ -12,11 +12,11 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./diagram.component.scss'],
 })
 export class DiagramComponent implements OnInit {
-
   constructor(private message:MessengerService, private commTest: CommTestService) {
     commTest.messages.subscribe(msg => {
       //console.log("Response from the websocket: ", msg);
     })
+    console.log("HERHERHERHE");
   }
 
   map = new Map([

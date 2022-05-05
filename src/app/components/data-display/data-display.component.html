@@ -15,38 +15,28 @@
       <tr>
         <td>PT1-F:</td>
         <td id="PT1-F">DATA</td>
-        <td>PT2-F:</td>
-        <td id = "PT2-F">DATA</td>
-        <!--<td>PT1-P:</td>
+        <td>PT1-P:</td>
         <td id="PT1-P">DATA</td>
-        -->
       </tr>
       <tr>
-        <td>PT3-F:</td>
-        <td id="PT3-F">DATA</td>
+        <td>PT2-F:</td>
+        <td id="PT2-F">DATA</td>
         <td>PT2-P:</td>
         <td id="PT2-P">DATA</td>
       </tr>
       <tr>
-        <!--
         <td>PT1-O:</td>
         <td id="PT1-O">DATA</td>
-      -->
         <td>PT1-E:</td>
         <td id="PT1-E">DATA</td>
+      </tr>
+      <tr>
         <td>PT2-O:</td>
         <td id="PT2-O">DATA</td>
-        
-      </tr>
-  
-      <!--<tr>
         <td>PT2-E:</td>
         <td id="PT2-E">DATA</td>
-        
-      </tr> -->
+      </tr>
       <tr>
-        <td>PT3-O:</td>
-        <td id= "PT3-O">DATA</td>
         <td>PT4-O:</td>
         <td id="PT4-O">DATA</td>
       </tr>
@@ -75,9 +65,8 @@
       <tr>
         <td>TC1-O:</td>
         <td id="TC1-O">DATA</td>
-        <!-- <td>TC2-E:</td>
+        <td>TC2-E:</td>
         <td id="TC2-E">DATA</td>
-        -->
       </tr>
     </table>
   </div>
@@ -97,13 +86,13 @@
         <td id="NitrousLoadCell">DATA</td>
       </tr>
     </table>
+    <ul>
+      <li>Ethanol Temperature: 80F (10+ Ambient)</li>
+      <li>Nitrous Temperature: 90F Upper</li>
+      <li>Ethanol Pressure: 1000PSI</li>
+      <li>Nitrous Pressure: WARNING 850PSI UPPER: 1000 PSI</li>
+    </ul> 
   </div>
-  <ul>
-    <li>Ethanol Temperature: 80F (10+ Ambient)</li>
-    <li>Nitrous Temperature: 90F Upper</li>
-    <li>Ethanol Pressure: 1000PSI</li>
-    <li>Nitrous Pressure: WARNING 850PSI UPPER: 1000 PSI</li>
-  </ul>
     <div class = "buttonBlock">
       <div class = 'recordingButtons'>
         <button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart"> <!--Deleted id from line, since class is selected, id not needed-->
@@ -121,3 +110,4 @@
     </div>
    </div>
 </div>
+ 

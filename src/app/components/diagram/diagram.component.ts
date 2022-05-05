@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessengerService } from '../../services/messenger.service';
 import { DataService } from '../../services/data.service';
+import { CommTestService } from 'src/app/services/comm-test.service';
+import { ThrowStmt } from '@angular/compiler';
+
 //import { appendFile } from 'fs';
 
 @Component({
@@ -10,31 +13,149 @@ import { DataService } from '../../services/data.service';
 })
 export class DiagramComponent implements OnInit {
 
-  constructor(private message:MessengerService) { }
+  constructor(private message:MessengerService, private commTest: CommTestService) {
+    commTest.messages.subscribe(msg => {
+      //console.log("Response from the websocket: ", msg);
+    })
+  }
 
   map = new Map([
-    ['FC-FP', false],
-    ['FO-P1', false],
-    ['FO-FP', false], // map of all our valves and their state
-    ['FC-P', false], // closed/off corresponds to false, open/on corresponds to true
-    ['FC2-O', false],
-    ['FO-P2', false],
-    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
-    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
+    ['FO_FP', true],
+    ['FC_FP', false],
+    ['FC_P', false], // map of all our valves and their state
+    ['FC1_F', false], // closed/off corresponds to false, open/on corresponds to true
+    ['FO_P1', true],
+    ['FO2_O', true],
+    ['FC4_O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['FC3_O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['PV_F', true],
+    ['PV_O', true],
     ['KILL', false]
   ]);
 
   resetSequence: [string, boolean][] = [ // This is the base sequence where all valves are closed
-    ['FC-FP', false],
-    ['FO-P1', false],
-    ['FO-FP', false],
-    ['FC-P', false], 
-    ['FC2-O', false],
-    ['FO-P2', false],
-    ['PV-O', false], //***********false is set to NITROGEN PATHWAY***********
-    ['PV-F', false], //***********false is set to NITROGEN PATHWAY***********
+    ['FO_FP', true],
+    ['FC_FP', false],
+    ['FC_P', false], // map of all our valves and their state
+    ['FC1_F', false], // closed/off corresponds to false, open/on corresponds to true
+    ['FO_P1', true],
+    ['FO2_O', true],
+    ['FC4_O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['FC3_O', false], //***********false is set to NITROGEN PATHWAY***********
+    ['PV_F', true],
+    ['PV_O', true],
     ['KILL', false]
   ];
+
+    public ValveStates = {
+      "SetValves" : {
+        FO_FP: "closed",
+        FC_FP: "closed",
+        FC_P: "closed",
+        FC1_F: "closed",
+        FO_P1: "closed",
+        FO2_O: "closed",
+        FC4_O: "closed",
+        FC3_O: "closed",
+        PV_F: "nitrogen",
+        PV_O: "nitrogen"
+      }
+  };
+
+  public sendValveStates(){
+    this.updateValveStates();
+    console.log("Sending valve states ");
+    this.commTest.valveMessages.next(this.ValveStates);
+    console.log("Valve States Sent ", this.ValveStates);
+    console.log("After sending valve states");
+  }
+
+  interval;
+  timeLeft = 0;
+  public async testFire(){
+    this.commTest.valveMessages.next("Ignite");
+    console.log("Ignited");
+  }
+
+  public delay(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+
+  public updateValveStates(){
+    if(this.map.get('FO_FP') === true){
+      this.ValveStates.SetValves.FO_FP = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FO_FP = "closed";
+    }
+
+    if(this.map.get('FC_FP') === true){
+      this.ValveStates.SetValves.FC_FP = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FC_FP = "closed";
+    }
+    
+    if(this.map.get('FC_P') === true){
+      this.ValveStates.SetValves.FC_P = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FC_P = "closed";
+    }
+    
+    if(this.map.get('FC1_F') === true){
+      this.ValveStates.SetValves.FC1_F = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FC1_F = "closed";
+    }
+    
+    if(this.map.get('FO_P1') === true){
+      this.ValveStates.SetValves.FO_P1 = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FO_P1 = "closed";
+    }
+    
+    if(this.map.get('FO2_O') === true){
+      this.ValveStates.SetValves.FO2_O = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FO2_O = "closed";
+    }
+    
+    if(this.map.get('FC4_O') === true){
+      this.ValveStates.SetValves.FC4_O = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FC4_O = "closed";
+    }
+    
+    if(this.map.get('FC3_O') === true){
+      this.ValveStates.SetValves.FC3_O = "open";
+    }
+    else{
+      this.ValveStates.SetValves.FC3_O = "closed";
+    }
+    
+    if(this.map.get('PV_F') === true){
+      this.ValveStates.SetValves.PV_F = "nitrogen";
+    }
+    else{
+      this.ValveStates.SetValves.PV_F = "fueloxidizer";
+    }
+
+    if(this.map.get('PV_O') === true){
+      this.ValveStates.SetValves.PV_O = "nitrogen";
+    }
+    else{
+      this.ValveStates.SetValves.PV_O = "fueloxidizer";
+    }
+  }
 
   /* method to iterate through and update 
     each valve when a sequence is selected
@@ -72,7 +193,7 @@ export class DiagramComponent implements OnInit {
     will set all buttons to false
   */
   public toggleState(buttonNum) {
-    
+    console.log(buttonNum);
     if(this.map.get('KILL') === false && buttonNum !== 'KILL'){ // if kill switch is toggled we don't want to be able to change valve states
       if (this.map.get(buttonNum) === false) { // if the button pressed is closed set value to open and change color
           this.map.set(buttonNum, true);
@@ -92,7 +213,6 @@ export class DiagramComponent implements OnInit {
       this.updateColor();
       document.getElementById(buttonNum).style.backgroundColor = 'black';
     }
-
   } // ends toggleState
 
   //lets the queued valves blink
@@ -141,6 +261,7 @@ export class DiagramComponent implements OnInit {
       document.getElementById('KILL').innerHTML = 'RESET';
       document.getElementById("WARNING").style.visibility = "visible";
       this.toggleState('KILL');
+      this.sendValveStates();
     }
   }
 

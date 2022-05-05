@@ -13,39 +13,39 @@ import { RandomDataService } from './services/random-data.service';
 export class AppComponent {
   constructor(private randomNum: RandomDataService, private commTest: CommTestService){
     commTest.messages.subscribe(msg => {
-      console.log("Response from websocket: ", msg);
+      
     });
 
     this.sendMsg();
   }
 
-  public message = {
-    Valve: "data",
-    PT1_F: "data",
-    PT2_F: "data",
-    PT1_O: "data",
-    PT2_O: "data",
-    PT4_O: "data",
-    PT1_P: "data",
-    PT2_P: "data",
-    PT1_E: "data",
-    PT2_E: "data",
-    TC1_F: "data",
-    TC2_F: "data",
-    TC1_O: "data",
-    TC5_O: "data",
-    TC1_E: "data",
-    TC2_E: "data",
-    FM_F: "data",
-    FM_O: "data",
-    Load1: "data",
-    Load2: "data"
+  public SensorData = {
+    TIMESTAMP: 0,
+    PT1_F: 0,
+    PT2_F: 0,
+    PT1_O: 0,
+    PT2_O: 0,
+    PT3_O: 0,
+    PT4_O: 0,
+    PT1_P: 0,
+    PT2_P: 0,
+    PT1_E: 0,
+    PT2_E: 0,
+    TC1_F: 0,
+    TC2_F: 0,
+    TC1_O: 0,
+    TC5_O: 0,
+    TC1_E: 0,
+    TC2_E: 0,
+    FM_F: 0,
+    FM_O: 0,
+    ThrustLoadCell: 0,
+    NitrousLoadCell: 0
   };
 
   sendMsg() {
-    console.log("New message from client to websocket: ", this.message);
-    this.commTest.messages.next(this.message);
-    this.message.PT1_F = this.randomNum.data[0];
+    console.log("New message from client to websocket: ", this.SensorData);
+    this.commTest.messages.next(this.SensorData);
     console.log("after sending message");
   }
   title = 'SEDS-GroundStation';

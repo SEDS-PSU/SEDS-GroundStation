@@ -10,29 +10,41 @@
         X
       </button>
     </div>
-    <button (click)="toggleState('FC-FP')" class="FC-FP" id="FC-FP">
-      FC-FP
+    <button (click)="sendValveStates()">
+      SEND VALVES
     </button>
-    <button (click)="toggleState('FO-P1')" class="FO-P1" id="FO-P1">
+    <button (click)="testFire()">
+      IGNITE
+    </button>
+    <button (click)="toggleState('FC_FP')" class="FC_FP" id="FC_FP">
+      FC_FP
+    </button>
+    <button (click)="toggleState('FO_P1')" class="FO_P1" id="FO_P1">
       FO-P1
     </button>
-    <button (click)="toggleState('FO-FP')" class="FO-FP" id="FO-FP">
+    <button (click)="toggleState('FO_FP')" class="FO_FP" id="FO_FP">
       FO-FP
     </button>
-    <button (click)="toggleState('FC-P')" class="FC-P" id="FC-P">
+    <button (click)="toggleState('FC_P')" class="FC_P" id="FC_P">
       FC-P
     </button>
-    <button (click)="toggleState('FC2-O')" class="FC2-O" id="FC2-O">
-      FC2-O
+    <button (click)="toggleState('FO2_O')" class="FO2_O" id="FO2_O">
+      FO2-O
     </button>
-    <button (click)="toggleState('FO-P2')" class="FO-P2" id="FO-P2">
-      FO-P2
+    <button (click)="toggleState('FC1_F')" class="FC1_F" id="FC1_F">
+      FC1-F
     </button>
-    <button (click)="toggleState('PV-O')" class="PV-O" id="PV-O">
+    <button (click)="toggleState('PV_O')" class="PV_O" id="PV_O">
       PV-O
     </button>
-    <button (click)="toggleState('PV-F')" class="PV-F" id="PV-F">
+    <button (click)="toggleState('PV_F')" class="PV_F" id="PV_F">
       PV-F
+    </button>
+    <button (click)="toggleState('FC4_O')" class="FC4_O" id="FC4_O">
+      FC4_O
+    </button>
+    <button (click)="toggleState('FC3_O')" class="FC3_O" id="FC3_O">
+      FC3_O
     </button>
 
     <p class="PV-O_status"></p>

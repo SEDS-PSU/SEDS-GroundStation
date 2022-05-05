@@ -16,7 +16,6 @@ export class DiagramComponent implements OnInit {
     commTest.messages.subscribe(msg => {
       //console.log("Response from the websocket: ", msg);
     })
-    console.log("HERHERHERHE");
   }
 
   map = new Map([
@@ -281,6 +280,8 @@ export class DiagramComponent implements OnInit {
       {
         next: y => this.queuedState(y)
       }
-    )
+    );
+    this.updateValveStates();
+    this.updateColor();
   } //ends void
 }

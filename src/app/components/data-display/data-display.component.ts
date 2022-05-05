@@ -102,25 +102,26 @@ export class DataDisplayComponent implements OnInit {
     this.interval = setInterval(async () => {
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
-      document.getElementById('TC1-E').innerHTML = String(this.data[14]);
-      document.getElementById('TC2-E').innerHTML = String(this.data[15]);
+      document.getElementById('PT1-F').innerHTML = String(this.data[0]);
+      document.getElementById('PT2-F').innerHTML = String(this.data[1]);
+      document.getElementById('PT1-O').innerHTML = String(this.data[2]);
+      document.getElementById('PT2-O').innerHTML = String(this.data[3]);
+      document.getElementById('PT3-O').innerHTML = String(this.data[4]);
+      document.getElementById('PT4-O').innerHTML = String(this.data[5]);
+      document.getElementById('PT1-P').innerHTML = String(this.data[6]);
+      document.getElementById('PT2-P').innerHTML = String(this.data[7]);
+      document.getElementById('PT1-E').innerHTML = String(this.data[8]);
+      document.getElementById('PT2-E').innerHTML = String(this.data[9]);
       document.getElementById('TC1-F').innerHTML = String(this.data[10]);
       document.getElementById('TC2-F').innerHTML = String(this.data[11]);
       document.getElementById('TC1-O').innerHTML = String(this.data[12]);
       document.getElementById('TC5-O').innerHTML = String(this.data[13]);
+      document.getElementById('TC1-E').innerHTML = String(this.data[14]);
+      document.getElementById('TC2-E').innerHTML = String(this.data[15]);
       document.getElementById('FM-F').innerHTML = String(this.data[16]);
       document.getElementById('FM-O').innerHTML = String(this.data[17]);
       document.getElementById('ThrustLoadCell').innerHTML = String(this.data[18]);
       document.getElementById('NitrousLoadCell').innerHTML = String(this.data[19]);
-      document.getElementById('PT1-F').innerHTML = String(this.data[0]);
-      document.getElementById('PT2-F').innerHTML = String(this.data[1]);
-      document.getElementById('PT1-E').innerHTML = String(this.data[8]);
-      document.getElementById('PT2-E').innerHTML = String(this.data[9]);
-      document.getElementById('PT1-O').innerHTML = String(this.data[2]);
-      document.getElementById('PT2-O').innerHTML = String(this.data[3]);
-      document.getElementById('PT4-O').innerHTML = String(this.data[5]);
-      document.getElementById('PT1-P').innerHTML = String(this.data[6]);
-      document.getElementById('PT2-P').innerHTML = String(this.data[7]);
 
       //Updates values so they may be sent to the graphs:
       this.newTCData = [

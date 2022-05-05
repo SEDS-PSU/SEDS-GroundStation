@@ -30,7 +30,6 @@ export class TcGraphComponent implements OnInit {
 
   public updateValues(newData)
   {
-    console.log("the updateValves method executed");
     //update the values on each graph
     for (let i = 0; i < newData.length; i++) {
       let sensor = newData[i][0];

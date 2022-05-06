@@ -18,6 +18,8 @@ export class DiagramComponent implements OnInit {
     })
   }
 
+  needsVerification = true;
+    
   map = new Map([
     ['FO_FP', true],
     ['FC_FP', false],
@@ -208,7 +210,6 @@ export class DiagramComponent implements OnInit {
         }
       }
     }
-
     this.updateColor();
   } // ends changeValveSequence
 
@@ -237,7 +238,19 @@ export class DiagramComponent implements OnInit {
       this.updateColor();
       document.getElementById(buttonNum).style.backgroundColor = 'black';
     }
+    if(!this.needsVerification){
+      this.sendValveStates();
+    }
   } // ends toggleState
+
+  public toggleVerification(){
+    if(this.needsVerification){
+      this.needsVerification = false;
+    }
+    else{
+      this.needsVerification = true;
+    }
+  }
 
   //lets the queued valves blink
   public queuedState(queued:string[])

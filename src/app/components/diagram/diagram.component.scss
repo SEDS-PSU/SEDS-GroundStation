@@ -19,6 +19,17 @@ h1{
   padding: 0;
   margin: 0;
 }
+
+button {
+  color: white;
+  font-size: 100%;
+  font-weight: bold;
+  width: min-content;
+  border-radius: 8px;
+  text-align: center;
+  height: auto;
+  
+}
 img {
   height: 800px;
   width: auto;
@@ -44,17 +55,22 @@ img {
   font-size: 30px;
   
 }
-/*.stepButtonContainer{
-  border: dashed;
+.applyStateValves{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.stepButtonContainer{
+  border: 
   border-color: black;
   position: absolute;
   top: 90%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 15px;
 
-}*/
+}
 .WARNING{
   position: absolute;
   border-width: 5px;

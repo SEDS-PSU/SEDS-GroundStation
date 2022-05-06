@@ -15,9 +15,10 @@
   height: min-content;
 }
 
-h1{
-  padding: 0;
-  margin: 0;
+h1 , h3, ul { //removes default margin and padding from h1 and h3
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
 }
 
 button {
@@ -35,6 +36,16 @@ img {
   width: auto;
 }
 
+.valueBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px;
+  border: solid;
+  position: absolute;
+  top: 7%;
+  left: 20.5%;
+}
 .killSwitchContainer{
   display: flex;
   flex-direction: column;
@@ -42,8 +53,8 @@ img {
   align-items: center;
   justify-items: center;
   position: absolute;
-  top: 85%;
-  right: 8%;
+  top: 87%;
+  right: -10%;
   padding: 10px;
   border: dashed;
   border-color:black;
@@ -65,10 +76,11 @@ img {
   border: dashed;
   border-color: black;
   position: absolute;
-  top: 90%;
+  top: 87%;
   display: flex;
   align-items: center;
   gap: 15px;
+  padding: 10px;
 
 }
 .WARNING{

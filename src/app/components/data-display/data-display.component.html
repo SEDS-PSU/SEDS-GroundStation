@@ -88,28 +88,23 @@
         <td id="NitrousLoadCell">DATA</td>
       </tr>
     </table>
-    <ul>
-      <li>Ethanol Temperature: 80F (10+ Ambient)</li>
-      <li>Nitrous Temperature: 90F Upper</li>
-      <li>Ethanol Pressure: 1000PSI</li>
-      <li>Nitrous Pressure: WARNING 850PSI UPPER: 1000 PSI</li>
-    </ul> 
   </div>
     <div class = "buttonBlock">
       <div class = 'recordingButtons'>
-        <button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart"> <!--Deleted id from line, since class is selected, id not needed-->
+        <!--<button (click)="recordDataStart()" class = "recordDataStart" id="recordDataStart"> 
           Start Recording
-        </button>
-        <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop"> <!--Deleted id from line, since class is selected, id not needed-->
+        </button> -->
+        <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop"> 
           Stop Recording
         </button>
+        <button (click)="button()" class = "openFileButton"> Open File </button> 
       </div>
-    <div class = downloadOpenPosition> 
+    <!--<div class = downloadOpenPosition> 
       <button class="downloadButton">
       <a [href]="fileUrl" download="Data.txt" class="downloadData">Download File</a> 
       </button>
       <button (click)="button()" class = "openFileButton"> Open File </button> 
-    </div>
+    </div> -->
    </div>
 </div>
  

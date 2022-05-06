@@ -11,6 +11,7 @@ import { SequencingComponent } from './components/sequencing/sequencing.componen
 import { TcGraphComponent } from './components/tc-graph/tc-graph.component';
 import { ChartsModule } from 'ng2-charts';
 import { ElectronicStatesComponent } from './components/electronic-states/electronic-states.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ElectronicStatesComponent } from './components/electronic-states/electr
     SequencingComponent,
     TcGraphComponent,
     ElectronicStatesComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ChartsModule],
   providers: [],

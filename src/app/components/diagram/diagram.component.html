@@ -10,15 +10,19 @@
         X
       </button>
     </div>
-      <button (click)="sendValveStates()">
+    <div class = "stepButtonContainer"> 
+     <div class = "applyStateValves">
+      <button style = "background-color: gray" (click)="sendValveStates()">
         SEND VALVES
       </button>
-      <button (click)="testFire()">
-        IGNITE
-      </button>
-      <button (click)="toggleVerification()">
+      <button style = "background-color: gray;" (click)="toggleVerification()">
         TOGGLE VERIFICATION
       </button>
+      </div> 
+      <button style = "background-color: gray;"(click)="testFire()">
+        IGNITE
+      </button>
+    </div> 
     <button (click)="toggleState('FC_FP')" class="FC_FP" id="FC_FP">
       FC-FP
     </button>

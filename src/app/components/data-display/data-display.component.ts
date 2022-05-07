@@ -14,6 +14,40 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./data-display.component.scss'],
 })
 export class DataDisplayComponent implements OnInit {
+  //static references of sensors for the graph components
+  //this is used so in case we need to change/add sensors, we don't have to do it across all the components
+  public static TCSensors:string[] = [
+    'TC1-E',
+    'TC2-E',
+    'TC1-F',
+    'TC2-F',
+    'TC1-O',
+    'TC5-O'
+  ];
+  public static PTSensors:string[] = [
+    'PT1-F',
+    'PT2-F',
+    'PT1-E',
+    'PT2-E',
+    'PT1-O',
+    'PT2-O',
+    'PT4-O',
+    'PT1-P',
+    'PT2-P'
+  ];
+  public static FMSensors:string[] = [
+    'FM-F',
+    'FM-O'
+  ];
+
+  public static LCSensors:string[] = [
+    'Load1',
+    'Load2'
+  ];
+
+  //Values used for labels across all graphs
+  public static numberGraphLabels:number = 30;
+
   constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
     commTest.messages.subscribe(msg => {
 
@@ -49,14 +83,11 @@ export class DataDisplayComponent implements OnInit {
   interval;
   formData = new FormData();
   output = "";
-  newTCData:[string, number][] = [
-    ['TC1-F', 0],
-    ['TC2-F', 0],
-    ['TC1-O', 0],
-    ['TC5-O', 0],
-    ['TC1-E', 0],
-    ['TC2-E', 0]
-  ];
+
+  newTCData:[string, number][];
+  newPTData:[string, number][];
+  newFMData:[string, number][];
+  newLCData:[string, number][];
 
   public async dataCollection(){
     this.interval = setInterval(async () => {
@@ -82,15 +113,43 @@ export class DataDisplayComponent implements OnInit {
       document.getElementById('PT1-P').innerHTML = String(this.data[17]);
       document.getElementById('PT2-P').innerHTML = String(this.data[18]);
 
-      //Updates values so they may be sent to the graphs:
+      /*These values are passed over to the graphs. Once we can recieve data from the raspi,
+        change 'this.dataService.data[*]' to the recieved data for each sensor. */
       this.newTCData = [
-        ['TC1-F', Number(this.dataService.data[3])],//Number(this.dataService.data[3])],
-        ['TC2-F', Number(this.dataService.data[4])],
-        ['TC1-O', Number(this.dataService.data[5])]
+        ['TC1-E', Number(this.dataService.data[0])],
+        ['TC2-E', Number(this.dataService.data[1])],
+        ['TC1-F', Number(this.dataService.data[2])],
+        ['TC2-F', Number(this.dataService.data[3])],
+        ['TC1-O', Number(this.dataService.data[4])],
+        ['TC5-O', Number(this.dataService.data[5])]
       ];
 
-      this.message.sendToTCGraph(this.newTCData);
+      this.newPTData = [
+        ['PT1-F', Number(this.dataService.data[10])],
+        ['PT2-F', Number(this.dataService.data[11])],
+        ['PT1-E', Number(this.dataService.data[12])],
+        ['PT2-E', Number(this.dataService.data[13])],
+        ['PT1-O', Number(this.dataService.data[14])],
+        ['PT2-O', Number(this.dataService.data[15])],
+        ['PT4-O', Number(this.dataService.data[16])],
+        ['PT1-P', Number(this.dataService.data[17])],
+        ['PT2-P', Number(this.dataService.data[18])]
+      ];
 
+      this.newFMData = [
+        ['FM-F', Number(this.dataService.data[6])],
+        ['FM-O', Number(this.dataService.data[7])]
+      ]
+
+      this.newLCData = [
+        ['Load1', Number(this.dataService.data[8])],
+        ['Load2', Number(this.dataService.data[9])]
+      ]
+
+      this.message.sendToTCGraph(this.newTCData);
+      this.message.sendToPTGraph(this.newPTData);
+      this.message.sendToFMGraph(this.newFMData);
+      this.message.sendToLCGraph(this.newLCData);
       
       //---- Writing data to a file
       // Creating the data

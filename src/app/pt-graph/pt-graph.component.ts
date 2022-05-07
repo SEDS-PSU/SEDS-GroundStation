@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
-import { MessengerService } from 'src/app/services/messenger.service';
-import { DataDisplayComponent } from '../data-display/data-display.component';
+import { Chart } from 'chart.js';
+import { DataDisplayComponent } from '../components/data-display/data-display.component';
+import { MessengerService } from '../services/messenger.service';
 
 @Component({
-  selector: 'app-tc-graph',
-  templateUrl: './tc-graph.component.html',
-  styleUrls: ['./tc-graph.component.scss']
+  selector: 'app-pt-graph',
+  templateUrl: './pt-graph.component.html',
+  styleUrls: ['./pt-graph.component.scss']
 })
-export class TcGraphComponent implements OnInit {
+export class PtGraphComponent implements OnInit {
   mainChart:Chart;
   mainData:[string, number[]][];
   //for keeping track of how many labels and sensors there are
   numLabels:number = DataDisplayComponent.numberGraphLabels;
-  numSensors:number = DataDisplayComponent.TCSensors.length;
+  numSensors:number = DataDisplayComponent.PTSensors.length;
   //Used for the graph's labels on the x axis (e.g 'T+1')
   xAxisLabels:string[];
 
   constructor(private message:MessengerService) {
     //Instantiate data sets, this assumes at most 10 sensors
-    let tempSensors = DataDisplayComponent.TCSensors;
+    let tempSensors = DataDisplayComponent.PTSensors;
     this.mainData = [
       ['', Array(this.numLabels)],
       ['', Array(this.numLabels)],
@@ -75,7 +75,7 @@ export class TcGraphComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mainChart = new Chart("thermoChart", {
+    this.mainChart = new Chart("pressureChart", {
       type: 'line',
       data: {
         labels: this.xAxisLabels,
@@ -83,11 +83,11 @@ export class TcGraphComponent implements OnInit {
         []
       },
       options: {
-        scales: {},
+        scales: {
+        },
         animation: {
           duration: 0
-        },
-        responsive: true
+        }
       }
     });
 
@@ -122,7 +122,7 @@ export class TcGraphComponent implements OnInit {
     }
 
     //for recieving graph updates
-    this.message.toTCGraph.subscribe(
+    this.message.toPTGraph.subscribe(
       {
         next: x => this.updateValues(x)
       }

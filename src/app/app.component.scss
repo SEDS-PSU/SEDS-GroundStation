@@ -49,3 +49,9 @@ app-check-engine{
 .mirror { // mirror function for images
   transform:scaleX(-1); 
 }
+
+//Formatting for graphs
+.graphTable {
+  width: 80%;
+  table-layout: fixed;
+}

@@ -12,19 +12,9 @@ export class MessengerService {
   toSequencing = new Subject<string>();
   toQueue = new Subject<string[]>();
   toTCGraph = new Subject<[string, number[]]>();
-
-  /*
-    to do: create an object that passes information
-    from sequencing to diagram and vice versa
-
-    Note: The Raspi itself is going to send updates 
-    to the UI/Raspi is sending the valve states 
-    themself to the ground station
-
-    For debugging purposes, we could include a 
-    some means of changing valve sequences
-    this may be kept on the Raspi
-  */
+  toPTGraph = new Subject<[string, number[]]>();
+  toFMGraph = new Subject<[string, number[]]>();
+  toLCGraph = new Subject<[string, number[]]>();
 
   public sendToDiagram(message)
   {
@@ -44,5 +34,20 @@ export class MessengerService {
   public sendToTCGraph(message)
   {
     this.toTCGraph.next(message);
+  }
+
+  public sendToPTGraph(message)
+  {
+    this.toPTGraph.next(message);
+  }
+
+  public sendToFMGraph(message)
+  {
+    this.toFMGraph.next(message);
+  }
+
+  public sendToLCGraph(message)
+  {
+    this.toLCGraph.next(message);
   }
 }

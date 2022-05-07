@@ -3,7 +3,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    background: beige;
+    background: #4A5C91;;
     height:100%;
     width: 100%;
     align-items: center;
@@ -12,7 +12,9 @@
 .info{
     align-items: flex-start;
 }
-
+td {
+    color: white;
+}
 h1, p, h3, h2 {
     margin: 0px;
     padding: 0px;
@@ -24,7 +26,7 @@ h1, p, h3, h2 {
 }
 
 table{
-    border-spacing: 15px;
+    border-spacing: 70px 10px;
 }
 
 .led-red {

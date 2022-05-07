@@ -5,8 +5,7 @@ import { MessengerService } from 'src/app/services/messenger.service';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { CommTestService } from 'src/app/services/comm-test.service';
 import { ThrowStmt } from '@angular/compiler';
-//import { FileSystemFileHandle } from 'file-system-access';
-
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-data-display',
@@ -14,7 +13,7 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./data-display.component.scss'],
 })
 export class DataDisplayComponent implements OnInit {
-  constructor(private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
+  constructor(private dataSharing:DataSharingService, private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
     commTest.messages.subscribe(async msg => {
 
       // NEEDS UPDATED
@@ -169,6 +168,7 @@ export class DataDisplayComponent implements OnInit {
   // Stop recording data to the file
   public async recordDataStop(){
     this.isRecording = false;
+    this.dataSharing.sendDataDownloading();
   }
   public async downloadData(){
     
@@ -196,6 +196,7 @@ export class DataDisplayComponent implements OnInit {
   };
   public async button() {
    this.newHandle = await window.showSaveFilePicker();
+   this.dataSharing.sendDataDownloading();
    this.isRecording = true;
   }
   public async saveFile() {

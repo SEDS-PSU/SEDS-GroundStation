@@ -3,6 +3,8 @@ import { MessengerService } from '../../services/messenger.service';
 import { DataService } from '../../services/data.service';
 import { CommTestService } from 'src/app/services/comm-test.service';
 import { ThrowStmt } from '@angular/compiler';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 //import { appendFile } from 'fs';
 
@@ -12,13 +14,11 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./diagram.component.scss'],
 })
 export class DiagramComponent implements OnInit {
-  constructor(private message:MessengerService, private commTest: CommTestService) {
+  constructor(private dataSharing:DataSharingService, private message:MessengerService, private commTest: CommTestService) {
     commTest.messages.subscribe(msg => {
       //console.log("Response from the websocket: ", msg);
     })
   }
-
-  needsVerification = true;
     
   map = new Map([
     ['FO_FP', true],
@@ -250,6 +250,7 @@ export class DiagramComponent implements OnInit {
     else{
       this.needsVerification = true;
     }
+    this.dataSharing.sendToggleVerification();
   }
 
   //lets the queued valves blink
@@ -306,9 +307,10 @@ export class DiagramComponent implements OnInit {
   {
     this.changeValveSequence(x);
   }
-
+  needsVerification;
   ngOnInit(): void {
     //sequencing diagram interaction
+    this.needsVerification = true;
     this.message.toDiagram.subscribe(
       {
         next: x => this.pushMessage(x)

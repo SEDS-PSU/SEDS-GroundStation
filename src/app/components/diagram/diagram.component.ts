@@ -16,7 +16,7 @@ import { DataSharingService } from 'src/app/services/data-sharing.service';
 export class DiagramComponent implements OnInit {
   constructor(private dataSharing:DataSharingService, private message:MessengerService, private commTest: CommTestService) {
     commTest.messages.subscribe(msg => {
-      //console.log("Response from the websocket: ", msg);
+     
     })
   }
     
@@ -288,6 +288,18 @@ export class DiagramComponent implements OnInit {
     below is the code for the killswitch
   */
   public killSwitch() {
+    this.ValveStates.SetValves.FO_FP = "open";
+    this.ValveStates.SetValves.FC_FP = "closed";
+    this.ValveStates.SetValves.FC_P = "closed";
+    this.ValveStates.SetValves.FC1_F = "closed";
+    this.ValveStates.SetValves.FO_P1 = "open";
+    this.ValveStates.SetValves.FO2_O = "open";
+    this.ValveStates.SetValves.FC4_O = "closed";
+    this.ValveStates.SetValves.FC3_O = "closed";
+    this.ValveStates.SetValves.PV_F = "nitrogen";
+    this.ValveStates.SetValves.PV_O = "nitrogen";
+    this.sendValveStates();
+    /*
     if(this.map.get('KILL') == true) {
       document.getElementById('KILL').innerHTML = 'X';
       document.getElementById('KILL').style.backgroundColor = 'red';
@@ -301,6 +313,7 @@ export class DiagramComponent implements OnInit {
       this.toggleState('KILL');
       this.sendValveStates();
     }
+    */
   }
 
   private pushMessage(x)

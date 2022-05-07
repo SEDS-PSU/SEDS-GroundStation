@@ -13,6 +13,7 @@ import { DataSharingService } from 'src/app/services/data-sharing.service';
   styleUrls: ['./data-display.component.scss'],
 })
 export class DataDisplayComponent implements OnInit {
+  valve:string="";
   constructor(private dataSharing:DataSharingService, private dataService: DataService, private sanitizer: DomSanitizer, private commTest: CommTestService, private message:MessengerService) {
     commTest.messages.subscribe(async msg => {
 
@@ -37,8 +38,8 @@ export class DataDisplayComponent implements OnInit {
       this.data[15] = (Math.round(Number(msg.TC2_E) * 100) / 100).toString();
       this.data[16] = (Math.round(Number(msg.FM_F) * 100) / 100).toString();
       this.data[17] = (Math.round(Number(msg.FM_O) * 100) / 100).toString();
-      this.data[18] = (Math.round(Number(msg.ThrustLoadCell) * 100) / 100).toString();
-      this.data[19] = (Math.round(Number(msg.NitrousLoadCell) * 100) / 100).toString();
+      this.data[18] = ((Math.round(Number(msg.ThrustLoadCell) * 100) / 100) - this.currThrust).toString();
+      this.data[19] = ((Math.round(Number(msg.NitrousLoadCell) * 100) / 100) - this.currNitrous).toString();
       // create a FileSystemWritableFileStream to write to
       this.TIME = this.TIME + 1;
       // write our file
@@ -99,6 +100,7 @@ export class DataDisplayComponent implements OnInit {
 
   public async dataCollection(){
     this.interval = setInterval(async () => {
+      console.log("Valve state ", this.valve);
       this.timeLeft += 1;
       this.output += this.dataService.data[0];
       document.getElementById('PT1-F').innerHTML = String(this.data[0]);
@@ -165,6 +167,15 @@ export class DataDisplayComponent implements OnInit {
     console.log("File Data ", contents);
   }
 
+  currNitrous
+  public zeroNitrous(){
+    this.currNitrous = this.data[19];
+  }
+  currThrust
+  public zeroThrust(){
+    this.currThrust = this.data[18];
+  }
+
   // Stop recording data to the file
   public async recordDataStop(){
     this.isRecording = false;
@@ -180,6 +191,9 @@ export class DataDisplayComponent implements OnInit {
     var fileName = "DATA_HERE.txt"
     var blob = new Blob([fileText], {type: 'text/plain'})
     this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+    this.dataSharing.currentValveStates.subscribe(msg => this.valve = msg);
+    this.currNitrous = 0;
+    this.currThrust = 0;
   }
 
   pickerOpts = {

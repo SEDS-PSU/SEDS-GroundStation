@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,12 @@ export class DataSharingService {
   private subject = new Subject<any>();
   private subject1 = new Subject<any>();
   private subject2 = new Subject<any>();
+  private valveStates = new BehaviorSubject('Basic Approval is required!');
+  currentValveStates = this.valveStates.asObservable();
+
+  updateValveStates(message: string){
+    this.valveStates.next(message);
+  }
 
   sendToggleVerification(){
     this.subject.next();

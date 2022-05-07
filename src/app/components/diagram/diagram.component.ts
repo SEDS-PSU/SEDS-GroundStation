@@ -66,6 +66,7 @@ export class DiagramComponent implements OnInit {
   public sendValveStates(){
     this.updateValveStates();
     console.log("Sending valve states ");
+    this.dataSharing.updateValveStates(this.ValveStates.SetValves.FC1_F);
     this.commTest.valveMessages.next(this.ValveStates);
     console.log(this.ValveStates);
     console.log("Valve States Sent ", this.ValveStates);
@@ -288,16 +289,17 @@ export class DiagramComponent implements OnInit {
     below is the code for the killswitch
   */
   public killSwitch() {
-    this.ValveStates.SetValves.FO_FP = "open";
-    this.ValveStates.SetValves.FC_FP = "closed";
-    this.ValveStates.SetValves.FC_P = "closed";
-    this.ValveStates.SetValves.FC1_F = "closed";
-    this.ValveStates.SetValves.FO_P1 = "open";
-    this.ValveStates.SetValves.FO2_O = "open";
-    this.ValveStates.SetValves.FC4_O = "closed";
-    this.ValveStates.SetValves.FC3_O = "closed";
-    this.ValveStates.SetValves.PV_F = "nitrogen";
-    this.ValveStates.SetValves.PV_O = "nitrogen";
+    this.map.set('FO_FP', true);
+    this.map.set('FC_FP', false);
+    this.map.set('FC_P', false);
+    this.map.set('FC1_F', false);
+    this.map.set('FO_P1', true);
+    this.map.set('FO2_O', true);
+    this.map.set('FC4_O', false);
+    this.map.set('FC3_O', false);
+    this.map.set('PV_F', true);
+    this.map.set('PV_O', true);
+    this.updateColor();
     this.sendValveStates();
     /*
     if(this.map.get('KILL') == true) {
@@ -336,5 +338,6 @@ export class DiagramComponent implements OnInit {
     );
     this.updateValveStates();
     this.updateColor();
+    this.dataSharing.currentValveStates.subscribe(msg => this.ValveStates.SetValves.FC1_F = msg);
   } //ends void
 }

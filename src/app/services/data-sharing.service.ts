@@ -9,7 +9,7 @@ export class DataSharingService {
   private subject = new Subject<any>();
   private subject1 = new Subject<any>();
   private subject2 = new Subject<any>();
-  private valveStates = new BehaviorSubject('Basic Approval is required!');
+  private valveStates = new BehaviorSubject('');
   currentValveStates = this.valveStates.asObservable();
 
   updateValveStates(message: string){

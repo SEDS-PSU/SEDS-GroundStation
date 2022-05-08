@@ -97,16 +97,19 @@
         <button (click)="recordDataStop()" class = "recordDataStop" id="recordDataStop"> 
           Stop Recording
         </button>
-        <button (click)="button()" class = "openFileButton"> Open File </button>
-        <button (click)="zeroNitrous()"> Zero Nitrous </button>
-        <button (click)="zeroThrust()"> Zero Thrust </button>
+        <button (click)="button()" class = "openFileButton"> Open File </button>  
+      </div>    
+      <div class = 'zeroButtons'>
+        <button (click)="zeroNitrous()" style="background-color: blue;"> Zero Nitrous </button>
+        <button (click)="zeroThrust()" style="background-color: orange;"> Zero Thrust </button>
       </div>
+     </div>
     <!--<div class = downloadOpenPosition> 
       <button class="downloadButton">
       <a [href]="fileUrl" download="Data.txt" class="downloadData">Download File</a> 
       </button>
       <button (click)="button()" class = "openFileButton"> Open File </button> 
     </div> -->
-   </div>
 </div>
+
  

@@ -33,7 +33,17 @@ h1 , h3, ul { //removes default margin and padding from h1 and h3
   gap: 20px;
 }
 
+.buttonBlock{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
+.zeroButtons {
+  display: flex;
+  gap: 20px;
+  color: blue;
+}
 button {
   color: white;
   font-size: 100%;
